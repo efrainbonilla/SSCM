@@ -1,0 +1,83 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/sadmin/css/dashboard.css') }}" rel="stylesheet">  
+	<link href="{{ asset('bundles/sadmin/css/sticky-footer.css') }}" rel="stylesheet">	
+
+{% endblock %}
+
+{% block header %}
+
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        	<a class="navbar-brand" href="#">Sala Situacional del Eje Geopolítico Cacique Mara.</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#">Acerca de Nosotros</a></li>
+	                </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+	
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+
+	    <div class="col-sm-3 col-md-2 sidebar">
+		{% block sidebar %}
+			<ul class="nav nav-sidebar">
+		        <li> <a href="{{ url('sadmin_index') }}">Inicio </a>
+		        </li>
+		        <li class="active"> <a href="{{ url('sadmin_login') }}">Inicio de Sesión </a>
+		        </li>
+		        <li><a href="{{ url('sadmin_register') }}">Registro o Actualización</a>
+		        </li>
+		        <li><a href="{{ url('sadmin_lostpassword') }}">Recordar contraseña</a>
+		        </li>
+		    </ul>
+		{% endblock %}
+	    </div>	
+
+	    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		{% block main %}
+			main
+		{% endblock %}
+	    </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+        <div class="container-fluid">
+
+            {% block footer_content %}
+            <div class="row">
+				<div class="col-sm-3 col-md-2">
+
+				</div>
+			    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+		            <p class="text-muted">SALA SITUACIONAL Universidad Bolivariana de Venezuela-(UBV)Zulia</p>
+				</div>
+			</div>
+            {% endblock %}
+
+        </div>
+    </div>
+{% endblock %}

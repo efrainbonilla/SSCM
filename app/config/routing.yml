@@ -1,0 +1,4 @@
+sadmin:
+    resource: "@SadminBundle/Resources/config/routing.yml"
+    prefix:   /
+

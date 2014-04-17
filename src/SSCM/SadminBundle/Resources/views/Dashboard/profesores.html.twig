@@ -1,0 +1,49 @@
+{% extends 'SadminBundle::layout_dashboard.html.twig' %}
+
+{% block main %}
+	<h1 class="page-header">Profesores</h1>
+	<div class="table-responsive">
+		<table id="my-table" class="table table-hover">
+			<thead>
+				<tr>
+					<th data-dynatable-column="codi_pais">header 1</th>
+					<th data-dynatable-column="nomb_pais">header 2</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</div>		
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript">
+	(function() {
+		$(document).ready(function() {
+			$('#my-table').dynatable({
+	            table: {
+	                defaultColumnIdStyle: 'trimDash',
+					headRowClass: 'line-table'
+	            },
+	            dataset: {
+	                ajax: true,
+	                ajaxUrl: "{{ path('get_pais') }}.json",
+	                ajaxOnLoad: true,
+	                records: [],
+
+		            perPageDefault: 5,
+            		perPageOptions: [5, 10, 20, 50, 100],
+
+	            }
+	        }).on('dynatable:preinit', function(obj) {
+	        	alert('ok');
+	        });
+
+			
+		});
+	})();
+
+	</script>
+{% endblock %}
