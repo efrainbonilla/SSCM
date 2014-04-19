@@ -19,7 +19,7 @@ class ListEje
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idEje;
+    private $id;
 
     /**
      * @var string
@@ -52,9 +52,9 @@ class ListEje
      *
      * @return integer 
      */
-    public function getIdEje()
+    public function getId()
     {
-        return $this->idEje;
+        return $this->id;
     }
 
     /**

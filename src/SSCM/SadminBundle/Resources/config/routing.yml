@@ -26,10 +26,11 @@ sadmin_dashboard_profe:
     pattern:  /dashboard/profesores
     defaults: { _controller: SadminBundle:Dashboard:profesores }
 
-sadmin_dashboard_rest:
+sadmin_dashboard_profe_list:
     pattern:  /dashboard/profesores/list
     defaults: { _controller: SadminBundle:Dashboard:dynatable }
 
-pais:
+sadmin_rest:
     type: rest
-    resource: SSCM\SadminBundle\Controller\PaisController
+    resource: "@SadminBundle/Resources/config/routing_rest.yml"
+    prefix:   /api

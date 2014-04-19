@@ -1281,7 +1281,7 @@
             $searchSpan = $('<span></span>', {
                 id: 'dynatable-search-' + obj.element.id,    
                 'class': 'input-group-btn',
-            }).append($('<button class="btn btn-primary" type="button">IR</button>')),
+            }).append($('<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search" ></span></button> ')),
 
             $searchContent = $('<div></div>', {
                 id: 'dynatable-search-' + obj.element.id,

@@ -1,11 +1,8 @@
 <?php
 namespace SSCM\SadminBundle\Controller;
 
-use SSCM\SadminBundle\Entity\ListEstado;
-use SSCM\SadminBundle\Entity\ListMunicipio;
 use SSCM\SadminBundle\Entity\ListPais;
-use SSCM\SadminBundle\Entity\ListParroquia;
-use SSCM\SadminBundle\Entity\ListZona;
+use SSCM\SadminBundle\Util\Utility;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -13,18 +10,8 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Util\Codes;
 use Symfony\Component\HttpFoundation\Request;
 
-use Doctrine\ORM\Tools\Pagination\Paginator;
-
-class PaisController extends FOSRestController implements ClassResourceInterface
+class RegionController extends FOSRestController implements ClassResourceInterface
 {
-
-	public function camelCase($str, $exclude=array())
-	{
-    	$str = preg_replace('/[^a-z0-9' . implode("", $exclude) . ']+/i', ' ', $str);
-	    // uppercase the first character of each word
-	    $str = ucwords(trim($str));
-	    return lcfirst(str_replace(" ", "", $str));
-	}
 	/**
 	 * Collection action
 	 * @param  Request $request 
@@ -34,7 +21,6 @@ class PaisController extends FOSRestController implements ClassResourceInterface
 	 */
     public function cgetAction(Request $request)
     {
-
     	$page = $request->query->get('page');
     	$offset = $request->query->get('offset');
 	   	$sorts = $request->query->get('sorts');
@@ -46,7 +32,7 @@ class PaisController extends FOSRestController implements ClassResourceInterface
 
     	if (is_array($sorts)) {
     		foreach ($sorts as $key => $value)
-    			$orderBy[ $this->camelCase($key) ] = ($value == -1) ? 'DESC' : 'ASC' ;
+    			$orderBy[ Utility::camelCase($key) ] = ($value == -1) ? 'DESC' : 'ASC' ;
     	}
     	if (is_array($queries)) {
     		foreach ($queries as $key => $value)
@@ -58,18 +44,45 @@ class PaisController extends FOSRestController implements ClassResourceInterface
     	$entity = $em->getRepository('SadminBundle:ListPais')
     		->findBy($criteria, $orderBy, $perPage, $offset );
 
-
- 		/*return $this->getEntityManager()
-        	->createQuery('...')
-        	->setMaxResults(5)
-        	->setFirstResult(10)
-        	->getResult();*/
-
     	return array(
     		'records' => $entity,
 			'totalRecordCount' => count($entity),
 			'queryRecordCount' => 22,
 			'request' => $criteria
     	);
+    }
+
+    /**
+     * Get action
+     * @param  integer $PaisId 
+     * @return array    
+     * 
+     * @Rest\View() 
+     */
+    public function getAction($PaisId)
+    {
+       $entity = $this->getEntity($PaisId);
+
+        return array(
+            'entity' => $entity,
+        );
+    }
+
+    /**
+     * Get entity instance
+     * @param  integer $id 
+     * @return ListPais     
+     */
+    protected function getEntity($PaisId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('SadminBundle:ListPais')->find($PaisId);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find pais entity');
+        }
+
+        return $entity;
     }
 }

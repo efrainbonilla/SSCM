@@ -1,0 +1,23 @@
+pais:
+    type: rest
+    resource: SSCM\SadminBundle\Controller\RegionController
+
+estado:
+    type: rest
+    parent: pais
+    resource: SSCM\SadminBundle\Controller\EstadoController
+
+municipio:
+    type: rest
+    parent: estado
+    resource: SSCM\SadminBundle\Controller\MunicipioController
+
+parroquia:
+    type: rest
+    parent: municipio
+    resource: SSCM\SadminBundle\Controller\ParroquiaController
+
+zona:
+    type: rest
+    parent: parroquia
+    resource: SSCM\SadminBundle\Controller\ZonaController
