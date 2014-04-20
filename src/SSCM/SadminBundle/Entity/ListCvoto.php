@@ -19,7 +19,7 @@ class ListCvoto
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idCvoto;
+    private $id;
 
     /**
      * @var string
@@ -52,7 +52,7 @@ class ListCvoto
      *
      * @return integer 
      */
-    public function getIdCvoto()
+    public function getId()
     {
         return $this->idCvoto;
     }

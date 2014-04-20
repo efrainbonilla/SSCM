@@ -21,3 +21,12 @@ zona:
     type: rest
     parent: parroquia
     resource: SSCM\SadminBundle\Controller\ZonaController
+
+eje:
+    type: rest
+    resource: SSCM\SadminBundle\Controller\ListEjeController
+    prefix:   /ejes
+
+cvoto:
+    type: rest
+    resource: SSCM\SadminBundle\Controller\ListCvotoRESTController
