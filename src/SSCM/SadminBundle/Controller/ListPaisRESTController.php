@@ -7,8 +7,9 @@ use Symfony\Component\Form\Form;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use SSCM\SadminBundle\Entity\ListEje;
-use SSCM\SadminBundle\Form\ListEjeType;
+use SSCM\SadminBundle\Util\Utility;
+use SSCM\SadminBundle\Entity\ListPais;
+use SSCM\SadminBundle\Form\ListPaisType;
 
 use FOS\RestBundle\View\View as FOSView;
 use FOS\RestBundle\Request\ParamFetcherInterface;
@@ -20,26 +21,26 @@ use FOS\RestBundle\Controller\Annotations\RouteResource;
 use Voryx\RESTGeneratorBundle\Controller\VoryxController;
 
 /**
- * ListEje controller.
- * @RouteResource("eje")
+ * ListPais controller.
+ * @RouteResource("region")
  */
-class ListEjeRESTController extends VoryxController
+class ListPaisRESTController extends VoryxController
 {
     /**
-     * Get a ListEje entity
+     * Get a ListPais entity
      *
      * @View(serializerEnableMaxDepthChecks=true)
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
      */
-    public function getAction(ListEje $entity)
+    public function getAction(ListPais $entity)
     {
         return $entity;
     }
 
     /**
-     * Get all ListEje entities.
+     * Get all ListPais entities.
      *
      * @View(serializerEnableMaxDepthChecks=true)
      *
@@ -50,6 +51,9 @@ class ListEjeRESTController extends VoryxController
      * @QueryParam(name="limit", requirements="\d+", default="20", description="How many notes to return.")
      * @QueryParam(name="order_by", nullable=true, array=true, description="Order by fields. Must be an array ie. &order_by[name]=ASC&order_by[description]=DESC")
      * @QueryParam(name="filters", nullable=true, array=true, description="Filter by fields. Must be an array ie. &filters[id]=3")
+     * @QueryParam(name="data_records", nullable=true, description="Filter by fields.")
+     * @QueryParam(name="query_count", nullable=true, description="Filter by fields.")
+     * @QueryParam(name="total_count", nullable=true, description="Filter by fields.")
      *
      */
     public function cgetAction(ParamFetcherInterface $paramFetcher)
@@ -59,11 +63,36 @@ class ListEjeRESTController extends VoryxController
             $limit = $paramFetcher->get('limit');
             $order_by = $paramFetcher->get('order_by');
             $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
+            
+            $data_records = $paramFetcher->get('data_records');
+            $query_count = $paramFetcher->get('query_count');
+            $total_count = $paramFetcher->get('total_count');
+
+            $orderBy = $criteria = array();
+
+            if (is_array($order_by)) {
+                foreach ($order_by as $key => $value)
+                    $orderBy[ Utility::camelCase($key) ] = ($value == -1) ? 'DESC' : 'ASC' ;
+
+                $order_by = $orderBy;
+            }
+            if (is_array($filters)) {
+                foreach ($filters as $key => $value)
+                    $criteria['nombPais'] = $value;
+
+                $filters = $criteria;
+            }
 
             $em = $this->getDoctrine()->getManager();
-            $entities = $em->getRepository('SadminBundle:ListEje')->findBy($filters, $order_by, $limit, $offset);
+            $entities = $em->getRepository('SadminBundle:ListPais')->findBy($filters, $order_by, $limit, $offset);
             if ($entities) {
-                return $entities;
+                $resp = array();
+                 if ($data_records) $resp[$data_records] = $entities;
+                 if ($query_count) $resp[$query_count] = 22;
+                 if ($total_count) $resp[$total_count] = count( $entities );
+
+                return ($data_records) ? $resp : $entities;
+
             } else {
                 return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
             }
@@ -73,7 +102,7 @@ class ListEjeRESTController extends VoryxController
     }
 
     /**
-     * Create a ListEje entity.
+     * Create a ListPais entity.
      *
      * @View(statusCode=201, serializerEnableMaxDepthChecks=true)
      *
@@ -84,8 +113,8 @@ class ListEjeRESTController extends VoryxController
     public function postAction(Request $request)
     {
 
-        $entity = new ListEje();
-        $form = $this->createForm(new ListEjeType(), $entity, array("method" => $request->getMethod()));
+        $entity = new ListPais();
+        $form = $this->createForm(new ListPaisType(), $entity, array("method" => $request->getMethod()));
         $this->removeExtraFields($request, $form);
         $form->handleRequest($request);
 
@@ -101,7 +130,7 @@ class ListEjeRESTController extends VoryxController
     }
 
     /**
-     * Update a ListEje entity.
+     * Update a ListPais entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
      *
@@ -111,13 +140,13 @@ class ListEjeRESTController extends VoryxController
      *
      *
      */
-    public function putAction(Request $request, ListEje $entity)
+    public function putAction(Request $request, ListPais $entity)
     {
 
         try {
             $em = $this->getDoctrine()->getManager();
             $request->setMethod('PATCH'); //Treat all PUTs as PATCH
-            $form = $this->createForm(new ListEjeType(), $entity, array("method" => $request->getMethod()));
+            $form = $this->createForm(new ListPaisType(), $entity, array("method" => $request->getMethod()));
             $this->removeExtraFields($request, $form);
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -134,7 +163,7 @@ class ListEjeRESTController extends VoryxController
     }
 
 /**
-    * Partial Update to a ListEje entity.
+    * Partial Update to a ListPais entity.
     *
     * @View(serializerEnableMaxDepthChecks=true)
     *
@@ -144,7 +173,7 @@ class ListEjeRESTController extends VoryxController
     *
 *
     */
-    public function patchAction(Request $request, ListEje $entity)
+    public function patchAction(Request $request, ListPais $entity)
     {
 
         return $this->putAction($request, $entity);
@@ -154,7 +183,7 @@ class ListEjeRESTController extends VoryxController
     }
 
     /**
-     * Delete a ListEje entity.
+     * Delete a ListPais entity.
      *
      * @View(statusCode=204)
      *
@@ -164,7 +193,7 @@ class ListEjeRESTController extends VoryxController
      * @return \Symfony\Component\HttpFoundation\Response
      *
      */
-    public function deleteAction(Request $request, ListEje $entity)
+    public function deleteAction(Request $request, ListPais $entity)
     {
 
         try {

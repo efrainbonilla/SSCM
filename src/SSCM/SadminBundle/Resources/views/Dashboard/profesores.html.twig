@@ -6,8 +6,8 @@
 		<table id="my-table" class="table table-striped table-hover table-bordered">
 			<thead>
 				<tr>
-					<th data-dynatable-column="codi_pais">Código</th>
-					<th data-dynatable-column="nomb_pais">Pais</th>
+					<th data-dynatable-column="id">Código</th>
+					<th data-dynatable-column="nomb_eje">Pais</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,14 +40,18 @@
 							headRowClass: 'line-table'
 			            },
 			            dataset: {
-			                /*ajax: true,
+			               /* ajax: true,
 			                ajaxUrl: "{{ path('get_regions') }}.json",
 			                ajaxOnLoad: true,*/
-			                records: data.records,
+			                records: data,
 
 				            perPageDefault: 5,
 		            		perPageOptions: [5, 10, 20, 50, 100],
-
+		            		ajaxData: {
+		            			response: 'records',
+		            			query_count: 'queryRecordCount',
+            					total_count: 'totalRecordCount'
+		            		}
 			            },
 			            inputs: {
             				queryEvent: 'blur change keyup',
@@ -57,6 +61,13 @@
             				perPageText: 'Mostrar: ',
             				recordCountText: 'Mostrando ',
             				processingText: 'Procesando...'
+			            },
+			            param: {
+			            	perPage: 'limit',
+							queries: 'filters',
+							sorts: 'order_by',
+							records: 'records'
+
 			            }
 			        });
 				}

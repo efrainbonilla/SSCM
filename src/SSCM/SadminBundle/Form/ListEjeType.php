@@ -17,7 +17,7 @@ class ListEjeType extends AbstractType
         $builder
             ->add('codiEje')
             ->add('nombEje')
-            ->add('codiEdo')
+            ->add('codiEdo', new ListEstadoType())
         ;
     }
     
@@ -27,7 +27,8 @@ class ListEjeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SSCM\SadminBundle\Entity\ListEje'
+            'data_class' => 'SSCM\SadminBundle\Entity\ListEje',
+            'cascade_validation' => true
         ));
     }
 

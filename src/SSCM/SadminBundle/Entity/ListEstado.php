@@ -19,7 +19,7 @@ class ListEstado
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiEdo;
+    private $id;
 
     /**
      * @var string
@@ -41,13 +41,13 @@ class ListEstado
 
 
     /**
-     * Get codiEdo
+     * Get id
      *
      * @return string 
      */
-    public function getCodiEdo()
+    public function getId()
     {
-        return $this->codiEdo;
+        return $this->id;
     }
 
     /**

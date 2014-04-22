@@ -7,21 +7,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SSCM\SadminBundle\Entity\ListEje;
-use SSCM\SadminBundle\Form\ListEjeType;
+use SSCM\SadminBundle\Entity\ListEstado;
+use SSCM\SadminBundle\Form\ListEstadoType;
 
 /**
- * ListEje controller.
+ * ListEstado controller.
  *
- * @Route("/ejes")
+ * @Route("/estados")
  */
-class ListEjeController extends Controller
+class ListEstadoController extends Controller
 {
 
     /**
-     * Lists all ListEje entities.
+     * Lists all ListEstado entities.
      *
-     * @Route("/", name="eje")
+     * @Route("/", name="estado")
      * @Method("GET")
      * @Template()
      */
@@ -29,22 +29,22 @@ class ListEjeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SadminBundle:ListEje')->findAll();
+        $entities = $em->getRepository('SadminBundle:ListEstado')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
     /**
-     * Creates a new ListEje entity.
+     * Creates a new ListEstado entity.
      *
-     * @Route("/", name="eje_create")
+     * @Route("/", name="estado_create")
      * @Method("POST")
-     * @Template("SadminBundle:ListEje:new.html.twig")
+     * @Template("SadminBundle:ListEstado:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new ListEje();
+        $entity = new ListEstado();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -53,7 +53,7 @@ class ListEjeController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('eje_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('estado_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -63,16 +63,16 @@ class ListEjeController extends Controller
     }
 
     /**
-    * Creates a form to create a ListEje entity.
+    * Creates a form to create a ListEstado entity.
     *
-    * @param ListEje $entity The entity
+    * @param ListEstado $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(ListEje $entity)
+    private function createCreateForm(ListEstado $entity)
     {
-        $form = $this->createForm(new ListEjeType(), $entity, array(
-            'action' => $this->generateUrl('eje_create'),
+        $form = $this->createForm(new ListEstadoType(), $entity, array(
+            'action' => $this->generateUrl('estado_create'),
             'method' => 'POST',
         ));
 
@@ -82,15 +82,15 @@ class ListEjeController extends Controller
     }
 
     /**
-     * Displays a form to create a new ListEje entity.
+     * Displays a form to create a new ListEstado entity.
      *
-     * @Route("/new", name="eje_new")
+     * @Route("/new", name="estado_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new ListEje();
+        $entity = new ListEstado();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -100,9 +100,9 @@ class ListEjeController extends Controller
     }
 
     /**
-     * Finds and displays a ListEje entity.
+     * Finds and displays a ListEstado entity.
      *
-     * @Route("/{id}", name="eje_show")
+     * @Route("/{id}", name="estado_show")
      * @Method("GET")
      * @Template()
      */
@@ -110,10 +110,10 @@ class ListEjeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+        $entity = $em->getRepository('SadminBundle:ListEstado')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ListEje entity.');
+            throw $this->createNotFoundException('Unable to find ListEstado entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -125,9 +125,9 @@ class ListEjeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing ListEje entity.
+     * Displays a form to edit an existing ListEstado entity.
      *
-     * @Route("/{id}/edit", name="eje_edit")
+     * @Route("/{id}/edit", name="estado_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,15 +135,15 @@ class ListEjeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+        $entity = $em->getRepository('SadminBundle:ListEstado')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ListEje entity.');
+            throw $this->createNotFoundException('Unable to find ListEstado entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
-        
+
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
@@ -152,16 +152,16 @@ class ListEjeController extends Controller
     }
 
     /**
-    * Creates a form to edit a ListEje entity.
+    * Creates a form to edit a ListEstado entity.
     *
-    * @param ListEje $entity The entity
+    * @param ListEstado $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(ListEje $entity)
+    private function createEditForm(ListEstado $entity)
     {
-        $form = $this->createForm(new ListEjeType(), $entity, array(
-            'action' => $this->generateUrl('eje_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new ListEstadoType(), $entity, array(
+            'action' => $this->generateUrl('estado_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -170,20 +170,20 @@ class ListEjeController extends Controller
         return $form;
     }
     /**
-     * Edits an existing ListEje entity.
+     * Edits an existing ListEstado entity.
      *
-     * @Route("/{id}", name="eje_update")
+     * @Route("/{id}", name="estado_update")
      * @Method("PUT")
-     * @Template("SadminBundle:ListEje:edit.html.twig")
+     * @Template("SadminBundle:ListEstado:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+        $entity = $em->getRepository('SadminBundle:ListEstado')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ListEje entity.');
+            throw $this->createNotFoundException('Unable to find ListEstado entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -193,7 +193,7 @@ class ListEjeController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('eje_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('estado_edit', array('id' => $id)));
         }
 
         return array(
@@ -203,9 +203,9 @@ class ListEjeController extends Controller
         );
     }
     /**
-     * Deletes a ListEje entity.
+     * Deletes a ListEstado entity.
      *
-     * @Route("/{id}", name="eje_delete")
+     * @Route("/{id}", name="estado_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -215,21 +215,21 @@ class ListEjeController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+            $entity = $em->getRepository('SadminBundle:ListEstado')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find ListEje entity.');
+                throw $this->createNotFoundException('Unable to find ListEstado entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('eje'));
+        return $this->redirect($this->generateUrl('estado'));
     }
 
     /**
-     * Creates a form to delete a ListEje entity by id.
+     * Creates a form to delete a ListEstado entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -238,7 +238,7 @@ class ListEjeController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('eje_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('estado_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

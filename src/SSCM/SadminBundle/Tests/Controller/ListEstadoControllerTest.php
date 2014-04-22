@@ -4,7 +4,7 @@ namespace SSCM\SadminBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ListEjeControllerTest extends WebTestCase
+class ListEstadoControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class ListEjeControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/ejes/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /ejes/");
+        $crawler = $client->request('GET', '/estado/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /estado/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'sscm_sadminbundle_listejetype[field_name]'  => 'Test',
+            'sscm_sadminbundle_listestadotype[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class ListEjeControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Edit')->form(array(
-            'sscm_sadminbundle_listejetype[field_name]'  => 'Foo',
+            'sscm_sadminbundle_listestadotype[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

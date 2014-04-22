@@ -22,10 +22,13 @@ zona:
     parent: parroquia
     resource: SSCM\SadminBundle\Controller\ZonaController
 
-eje:
+_pais:
     type: rest
-    resource: SSCM\SadminBundle\Controller\ListEjeController
-    prefix:   /ejes
+    resource: SSCM\SadminBundle\Controller\ListPaisRESTController
+
+ejes:
+    type: rest
+    resource: SSCM\SadminBundle\Controller\ListEjeRESTController
 
 cvoto:
     type: rest

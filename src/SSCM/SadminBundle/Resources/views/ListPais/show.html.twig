@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>ListEje</h1>
+    <h1>ListPais</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,24 +10,28 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Codieje</th>
-                <td>{{ entity.codiEje }}</td>
+                <th>Nombpais</th>
+                <td>{{ entity.nombPais }}</td>
             </tr>
             <tr>
-                <th>Nombeje</th>
-                <td>{{ entity.nombEje }}</td>
+                <th>Latpais</th>
+                <td>{{ entity.latPais }}</td>
+            </tr>
+            <tr>
+                <th>Lngpais</th>
+                <td>{{ entity.lngPais }}</td>
             </tr>
         </tbody>
     </table>
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('eje') }}">
+        <a href="{{ path('region') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('eje_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('region_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>

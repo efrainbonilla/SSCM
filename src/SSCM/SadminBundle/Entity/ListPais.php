@@ -19,7 +19,7 @@ class ListPais
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiPais;
+    private $id;
 
     /**
      * @var string
@@ -45,13 +45,13 @@ class ListPais
 
 
     /**
-     * Get codiPais
+     * Get Id
      *
      * @return integer 
      */
-    public function getCodiPais()
+    public function getId()
     {
-        return $this->codiPais;
+        return $this->id;
     }
 
     /**

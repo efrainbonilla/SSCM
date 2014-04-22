@@ -21,7 +21,7 @@ use Voryx\RESTGeneratorBundle\Controller\VoryxController;
 
 /**
  * ListCvoto controller.
- * @RouteResource("ListCvoto")
+ * @RouteResource("cvoto")
  */
 class ListCvotoRESTController extends VoryxController
 {

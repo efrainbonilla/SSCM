@@ -34,3 +34,12 @@ sadmin_rest:
     type: rest
     resource: "@SadminBundle/Resources/config/routing_rest.yml"
     prefix:   /api
+
+sadmin_ejes:
+    resource: SSCM\SadminBundle\Controller\ListEjeController
+
+sadmin_pais:
+    resource: SSCM\SadminBundle\Controller\ListPaisController
+
+sadmin_estado:
+    resource: SSCM\SadminBundle\Controller\ListEstadoController

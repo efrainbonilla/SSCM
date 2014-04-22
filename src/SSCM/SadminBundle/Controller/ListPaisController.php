@@ -7,21 +7,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use SSCM\SadminBundle\Entity\ListEje;
-use SSCM\SadminBundle\Form\ListEjeType;
+use SSCM\SadminBundle\Entity\ListPais;
+use SSCM\SadminBundle\Form\ListPaisType;
 
 /**
- * ListEje controller.
+ * ListPais controller.
  *
- * @Route("/ejes")
+ * @Route("/pais")
  */
-class ListEjeController extends Controller
+class ListPaisController extends Controller
 {
 
     /**
-     * Lists all ListEje entities.
+     * Lists all ListPais entities.
      *
-     * @Route("/", name="eje")
+     * @Route("/", name="region")
      * @Method("GET")
      * @Template()
      */
@@ -29,22 +29,22 @@ class ListEjeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SadminBundle:ListEje')->findAll();
+        $entities = $em->getRepository('SadminBundle:ListPais')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
     /**
-     * Creates a new ListEje entity.
+     * Creates a new ListPais entity.
      *
-     * @Route("/", name="eje_create")
+     * @Route("/", name="region_create")
      * @Method("POST")
-     * @Template("SadminBundle:ListEje:new.html.twig")
+     * @Template("SadminBundle:ListPais:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new ListEje();
+        $entity = new ListPais();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -53,7 +53,7 @@ class ListEjeController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('eje_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('region_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -63,16 +63,16 @@ class ListEjeController extends Controller
     }
 
     /**
-    * Creates a form to create a ListEje entity.
+    * Creates a form to create a ListPais entity.
     *
-    * @param ListEje $entity The entity
+    * @param ListPais $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(ListEje $entity)
+    private function createCreateForm(ListPais $entity)
     {
-        $form = $this->createForm(new ListEjeType(), $entity, array(
-            'action' => $this->generateUrl('eje_create'),
+        $form = $this->createForm(new ListPaisType(), $entity, array(
+            'action' => $this->generateUrl('region_create'),
             'method' => 'POST',
         ));
 
@@ -82,15 +82,15 @@ class ListEjeController extends Controller
     }
 
     /**
-     * Displays a form to create a new ListEje entity.
+     * Displays a form to create a new ListPais entity.
      *
-     * @Route("/new", name="eje_new")
+     * @Route("/new", name="region_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new ListEje();
+        $entity = new ListPais();
         $form   = $this->createCreateForm($entity);
 
         return array(
@@ -100,9 +100,9 @@ class ListEjeController extends Controller
     }
 
     /**
-     * Finds and displays a ListEje entity.
+     * Finds and displays a ListPais entity.
      *
-     * @Route("/{id}", name="eje_show")
+     * @Route("/{id}", name="region_show")
      * @Method("GET")
      * @Template()
      */
@@ -110,10 +110,10 @@ class ListEjeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+        $entity = $em->getRepository('SadminBundle:ListPais')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ListEje entity.');
+            throw $this->createNotFoundException('Unable to find ListPais entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -125,9 +125,9 @@ class ListEjeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing ListEje entity.
+     * Displays a form to edit an existing ListPais entity.
      *
-     * @Route("/{id}/edit", name="eje_edit")
+     * @Route("/{id}/edit", name="region_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,15 +135,15 @@ class ListEjeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+        $entity = $em->getRepository('SadminBundle:ListPais')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ListEje entity.');
+            throw $this->createNotFoundException('Unable to find ListPais entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
-        
+
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
@@ -152,16 +152,16 @@ class ListEjeController extends Controller
     }
 
     /**
-    * Creates a form to edit a ListEje entity.
+    * Creates a form to edit a ListPais entity.
     *
-    * @param ListEje $entity The entity
+    * @param ListPais $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(ListEje $entity)
+    private function createEditForm(ListPais $entity)
     {
-        $form = $this->createForm(new ListEjeType(), $entity, array(
-            'action' => $this->generateUrl('eje_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new ListPaisType(), $entity, array(
+            'action' => $this->generateUrl('region_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -170,20 +170,20 @@ class ListEjeController extends Controller
         return $form;
     }
     /**
-     * Edits an existing ListEje entity.
+     * Edits an existing ListPais entity.
      *
-     * @Route("/{id}", name="eje_update")
+     * @Route("/{id}", name="region_update")
      * @Method("PUT")
-     * @Template("SadminBundle:ListEje:edit.html.twig")
+     * @Template("SadminBundle:ListPais:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+        $entity = $em->getRepository('SadminBundle:ListPais')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find ListEje entity.');
+            throw $this->createNotFoundException('Unable to find ListPais entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -193,7 +193,7 @@ class ListEjeController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('eje_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('region_edit', array('id' => $id)));
         }
 
         return array(
@@ -203,9 +203,9 @@ class ListEjeController extends Controller
         );
     }
     /**
-     * Deletes a ListEje entity.
+     * Deletes a ListPais entity.
      *
-     * @Route("/{id}", name="eje_delete")
+     * @Route("/{id}", name="region_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -215,21 +215,21 @@ class ListEjeController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SadminBundle:ListEje')->find($id);
+            $entity = $em->getRepository('SadminBundle:ListPais')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find ListEje entity.');
+                throw $this->createNotFoundException('Unable to find ListPais entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('eje'));
+        return $this->redirect($this->generateUrl('region'));
     }
 
     /**
-     * Creates a form to delete a ListEje entity by id.
+     * Creates a form to delete a ListPais entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -238,7 +238,7 @@ class ListEjeController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('eje_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('region_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
