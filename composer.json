@@ -23,7 +23,10 @@
         "friendsofsymfony/rest-bundle": "1.2.*",
         "nelmio/api-doc-bundle": "@stable",
         "misd/guzzle-bundle": "~1.0",
-        "voryx/restgeneratorbundle": "dev-master"
+        "voryx/restgeneratorbundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
