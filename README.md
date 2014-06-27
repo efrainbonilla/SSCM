@@ -1,6 +1,3 @@
-=======
-SSCM
-====
 Symfony Standard Edition
 ========================
 
@@ -60,7 +57,7 @@ The script returns a status code of `0` if all mandatory requirements are met,
 
 Access the `config.php` script from a browser:
 
-    http://localhost/path/to/symfony/app/web/config.php
+    http://localhost/path-to-project/web/config.php
 
 If you get any warnings or recommendations, fix them before moving on.
 
@@ -171,5 +168,3 @@ Enjoy!
 [11]: http://symfony.com/doc/2.4/cookbook/logging/monolog.html
 [12]: http://symfony.com/doc/2.4/cookbook/assetic/asset_management.html
 [13]: http://symfony.com/doc/2.4/bundles/SensioGeneratorBundle/index.html
-
-

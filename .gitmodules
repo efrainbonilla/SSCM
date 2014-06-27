@@ -1,0 +1,3 @@
+[submodule "app/Resources/SensioGeneratorBundle"]
+	path = app/Resources/SensioGeneratorBundle
+	url = https://github.com/acseo/RESTGenerator

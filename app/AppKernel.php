@@ -19,29 +19,27 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             //API
-            new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
+            /*new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            new Misd\GuzzleBundle\MisdGuzzleBundle(),
-
-            new SSCM\SadminBundle\SadminBundle(),
+            new Misd\GuzzleBundle\MisdGuzzleBundle(),*/
 
 
-             // Add your dependencies
+            //KNP HELPER BUNDLES
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
+            // SONATA CORE & HELPER BUNDLES
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
-            // If you haven't already, add the storage bundle
-            // This example uses SonataDoctrineORMAdmin but
-            // it works the same with the alternatives
+
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-
-            // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
 
+            //PROJECT CODE
+            new SSCM\SadminBundle\SadminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -58,4 +56,3 @@ class AppKernel extends Kernel
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
 }
-    

@@ -409,18 +409,20 @@ class SymfonyRequirements extends RequirementCollection
                 'Then run "<strong>php composer.phar install</strong>" to install them.'
         );
 
-        $baseDir = dirname(__DIR__) . '/var';
+        $cacheDir = is_dir(__DIR__.'/../var/cache') ? __DIR__.'/../var/cache' : __DIR__.'/cache';
 
         $this->addRequirement(
-            is_writable($baseDir.'/cache'),
-            "$baseDir/cache/ directory must be writable",
-            "Change the permissions of the \"<strong>$baseDir/cache/</strong>\" directory so that the web server can write into it."
+            is_writable($cacheDir),
+            'app/cache/ or var/cache/ directory must be writable',
+            'Change the permissions of either "<strong>app/cache/</strong>" or  "<strong>var/cache/</strong>" directory so that the web server can write into it.'
         );
 
+        $logsDir = is_dir(__DIR__.'/../var/logs') ? __DIR__.'/../var/logs' : __DIR__.'/logs';
+
         $this->addRequirement(
-            is_writable($baseDir.'/logs'),
-            "$baseDir/logs/ directory must be writable",
-            "Change the permissions of the \"<strong>$baseDir/logs/</strong>\" directory so that the web server can write into it."
+            is_writable($logsDir),
+            'app/logs/ or var/logs/ directory must be writable',
+            'Change the permissions of either "<strong>app/logs/</strong>" or  "<strong>var/logs/</strong>" directory so that the web server can write into it.'
         );
 
         $this->addPhpIniRequirement(
