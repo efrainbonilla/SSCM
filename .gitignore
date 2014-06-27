@@ -10,4 +10,5 @@
 /bin/*
 !bin/console
 !bin/symfony_requirements
+!bin/load_data.php
 /composer.phar
