@@ -8,33 +8,27 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ListPaisAdmin extends Admin
+class ListEstadoAdmin extends Admin
 {
-    protected $baseRouteName = 'sonata_listpais';
+    public function getParentAssociationMapping()
+    {
+        return 'listpais';
+    }
 
-    protected $baseRoutePattern = 'pais';
-
-    protected $translationDomain = 'SonataPageBundle';
-
-    protected function configureShowFields(ShowMapper $showMapper)
+    /*protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('nombPais')
-            ->add('latPais')
-            ->add('lngPais')
+            ->add('nombEdo')
         ;
     }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-
         $formMapper
-            ->with('Región')
-                ->add('nombPais', 'text', array('label' => 'Pais'))
-                ->add('latPais', 'integer', array('label' => 'Latitud'))
-                ->add('lngPais', 'integer', array('label' => 'Longitud'))
+            ->with('Estado')
+                ->add('nombEdo')
+                ->add('codiPais')
             ->end()
-
         ;
     }
 
@@ -42,9 +36,7 @@ class ListPaisAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('nombPais')
-            ->add('latPais')
-            ->add('lngPais')
+            ->add('nombEdo')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -55,10 +47,10 @@ class ListPaisAdmin extends Admin
         ;
     }
 
-    public function configureDatagridFilters(DatagridMapper $datagridMapper)
+    public function configureDatagridFields(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('nombPais')
+            ->add('nombEdo')
         ;
-    }
+    }*/
 }

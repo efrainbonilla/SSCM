@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <!-- <parameters>
+        <parameter key="sonata.sscm.admin.listpais.class">SSCM\SadminBundle\Admin\ListPaisAdmin</parameter>
+        <parameter key="sonata.sscm.admin.listestado.class">SSCM\SadminBundle\Admin\ListEstadoAdmin</parameter>
+    </parameters> -->
+
+    <services>
+        <service id="sonata.sscm.admin.listpais" class="SSCM\SadminBundle\Admin\ListPaisAdmin">
+            <tag id="sonata.admin" manager_type="orm" group="Regiones" label="Pais"/>
+
+            <argument />
+            <argument>SSCM\SadminBundle\Entity\ListPais</argument>
+            <argument />
+
+            <call method="addChild">
+                <argument type="service" id="sonata.sscm.admin.listestado"/>
+            </call>
+        </service>
+        <service id="sonata.sscm.admin.listestado" class="SSCM\SadminBundle\Admin\ListEstadoAdmin">
+            <tag id="sonata.admin" manager_type="orm" group="Regiones" label="Estados"/>
+
+            <argument />
+            <argument>SSCM\SadminBundle\Entity\ListEstado</argument>
+            <argument />
+        </service>
+    </services>
+
+</container>

@@ -3,15 +3,79 @@
 	{
 		"selected_items":
 		[
+			[
+				"Data",
+				"DatagridMapper"
+			],
+			[
+				"array",
+				"array"
+			],
+			[
+				"sfc",
+				"sfcontroller	Symfony2 / Controller / Controller class"
+			],
+			[
+				"sf",
+				"sfem	Symfony2 / Controller / Get Entity Manager"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/AppKernel.php",
+			"file": "src/SSCM/SadminBundle/Admin/ListEstadoAdmin.php",
 			"settings":
 			{
-				"buffer_size": 2154,
+				"buffer_size": 1206,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/SSCM/SadminBundle/Admin/ListPaisAdmin.php",
+			"settings":
+			{
+				"buffer_size": 1624,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/SSCM/SadminBundle/Resources/config/admin.yml",
+			"settings":
+			{
+				"buffer_size": 696,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/config/sonata/sonata_admin.yml",
+			"settings":
+			{
+				"buffer_size": 1456,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/html/sandbox-sonata/src/Sonata/Bundle/DemoBundle/Admin/CarAdmin.php",
+			"settings":
+			{
+				"buffer_size": 1823,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/html/sandbox-sonata/app/config/sonata/sonata_admin.yml",
+			"settings":
+			{
+				"buffer_size": 11049,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/SSCM/SadminBundle/Resources/config/services.xml",
+			"settings":
+			{
+				"buffer_size": 682,
 				"line_ending": "Unix"
 			}
 		}
@@ -27,9 +91,10 @@
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 161.0,
 		"history":
 		[
+			"sublime.log_commands(True)"
 		]
 	},
 	"distraction_free":
@@ -43,6 +108,22 @@
 	},
 	"file_history":
 	[
+		"/var/www/html/SSCM/src/SSCM/SadminBundle/Entity/ListEstado.php",
+		"/var/www/html/SSCM/src/SSCM/SadminBundle/Admin/ListPaisAdmin.php",
+		"/var/www/html/SSCM/app/config/sonata/sonata_admin.yml",
+		"/var/www/html/SSCM/src/SSCM/SadminBundle/Entity/ListEje.php",
+		"/home/efrain/.config/sublime-text-3/Packages/PHP Companion/Default (Linux).sublime-keymap",
+		"/home/efrain/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/var/www/html/SSCM/vendor/sonata-project/admin-bundle/Admin/Admin.php",
+		"/var/www/html/SSCM/var/cache/dev/classes.php",
+		"/var/www/html/sandbox-sonata/vendor/sonata-project/admin-bundle/Admin/Admin.php",
+		"/home/efrain/.config/sublime-text-3/Packages/PhpNamespace/Default (Linux).sublime-keymap",
+		"/home/efrain/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/var/www/html/SSCM/vendor/sonata-project/admin-bundle/Resources/views/Core/dashboard.html.twig",
+		"/var/www/html/SSCM/vendor/sonata-project/admin-bundle/Controller/CRUDController.php",
+		"/var/www/html/SSCM/bin/load_data.php",
+		"/var/www/html/SSCM/.gitignore",
+		"/var/www/html/SSCM/app/Resources/views/base.html.twig",
 		"/var/www/html/SSCM/var/bootstrap.php.cache",
 		"/media/efrain/698C-DC2E/resource/install.sh"
 	],
@@ -55,6 +136,11 @@
 		"height": 103.0,
 		"where_history":
 		[
+			"/var/www/html/SSCM/",
+			"/var/www/html/sandbox-sonata/",
+			"/var/www/html/sandbox-sonata/vendor/sonata-project/admin-bundle/",
+			"/var/www/html/SSCM/vendor/sonata-project/admin-bundle/",
+			"/var/www/html/SSCM/vendor/sonata-project/admin-bundle/Resources/views/",
 			"/var/www/html/SSCM/"
 		]
 	},
@@ -63,6 +149,32 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ShowMapper",
+			"title_logo",
+			"sonata.admin.group.demo",
+			"group",
+			"sonata.demo.admin.engine",
+			"sonata.demo.admin.color",
+			"sonata.admin",
+			"sonata.admin.group.demo",
+			"show",
+			"public",
+			"adminCode",
+			"AdminCode",
+			"adminCode",
+			"base_template",
+			"CRUDController",
+			"getTemplate",
+			"function getTemplate",
+			"getTemplate",
+			"getBaseTemplate",
+			"base_template",
+			"dashboard",
+			"base_template",
+			"app",
+			"block_rss_dashboard",
+			"}{",
+			"AppKernel",
 			"print_r"
 		],
 		"highlight": true,
@@ -86,19 +198,563 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/AppKernel.php",
-					"semi_transient": true,
+					"file": "src/SSCM/SadminBundle/Admin/ListEstadoAdmin.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2154,
+						"buffer_size": 1206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								52,
-								52
+								1057,
+								1063
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"open_with_edit": true,
+							"spell_check": false,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/SSCM/SadminBundle/Admin/ListPaisAdmin.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								616,
+								616
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/SSCM/SadminBundle/Resources/config/admin.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 696,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								608,
+								608
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/config/sonata/sonata_admin.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1239,
+								1239
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/YAML/YAML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "/var/www/html/sandbox-sonata/src/Sonata/Bundle/DemoBundle/Admin/CarAdmin.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								863,
+								863
 							]
 						],
 						"settings":
@@ -108,11 +764,73 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
+						"translation.x": 10.0,
+						"translation.y": 300.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/var/www/html/sandbox-sonata/app/config/sonata/sonata_admin.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11049,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3286,
+								3286
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/YAML/YAML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/SSCM/SadminBundle/Resources/config/services.xml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								419,
+								419
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -120,11 +838,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 37.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 37.0
 	},
 	"layout":
 	{
@@ -135,11 +853,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.837047483208,
 			1.0
 		],
 		"rows":
@@ -149,6 +874,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 128.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -186,11 +915,11 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 210.0,
+	"side_bar_width": 242.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

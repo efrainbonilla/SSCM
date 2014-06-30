@@ -8,6 +8,10 @@
 		{
 			"follow_symlinks": true,
 			"path": "/var/www/html/sandbox-sonata"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/var/www/html/sf-demo"
 		}
 	],
 	"settings":
