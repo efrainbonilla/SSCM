@@ -9,6 +9,8 @@ imports:
     # Sonata Feature Bundle
     - { resource: sonata/sonata_admin.yml }
 
+    - { resource: "@SadminBundle/Resources/config/admin.yml" }
+
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }

@@ -1,0 +1,23 @@
+services:
+    sonata.sscm.admin.pais:
+        class: SSCM\SadminBundle\Admin\PaisAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Regiones", label: "Pais" }
+
+        arguments:
+            - ~
+            - SSCM\SadminBundle\Entity\Pais
+            - ~
+
+        calls:
+            - [addChild, ["@sonata.sscm.admin.estado"]]
+
+    sonata.sscm.admin.estado:
+        class: SSCM\SadminBundle\Admin\EstadoAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group:"Regiones", label: "Estado" }
+
+        arguments:
+            - ~
+            - SSCM\SadminBundle\Entity\Estado
+            - ~

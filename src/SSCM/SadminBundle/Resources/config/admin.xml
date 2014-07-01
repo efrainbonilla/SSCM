@@ -1,5 +1,4 @@
 <?xml version="1.0" ?>
-
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
@@ -16,9 +15,9 @@
             <argument>SSCM\SadminBundle\Entity\ListPais</argument>
             <argument />
 
-            <call method="addChild">
+           <!--  <call method="addChild">
                 <argument type="service" id="sonata.sscm.admin.listestado"/>
-            </call>
+            </call> -->
         </service>
         <service id="sonata.sscm.admin.listestado" class="SSCM\SadminBundle\Admin\ListEstadoAdmin">
             <tag id="sonata.admin" manager_type="orm" group="Regiones" label="Estados"/>

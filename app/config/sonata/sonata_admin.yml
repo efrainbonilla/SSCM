@@ -8,9 +8,9 @@ sonata_admin:
             # - { position: right, type: sonata.admin.block.admin_list}
 
         # groups:
-            # sonata.admin.group.regions:
-            #     label:			Regiones
-            #     icon:  '<i class="fa fa-play-circle"></i>'
-            #     items:
-            #         - sonata.sscm.admin.listpais
+        #     sonata.admin.group.regions:
+        #         label:			Regiones
+        #         icon:  '<i class="fa fa-play-circle"></i>'
+        #         items:
+        #             - sonata.sscm.admin.listpais
         #             - sonata.sscm.admin.listestado
