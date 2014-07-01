@@ -42,7 +42,7 @@ class PaisAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('nombPais')
+            ->add('nombPais', 'text', array('label' => 'Pais'))
             ->add('latPais')
             ->add('lngPais')
             ->add('_action', 'actions', array(
