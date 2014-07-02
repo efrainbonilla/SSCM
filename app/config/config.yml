@@ -10,6 +10,7 @@ imports:
     - { resource: sonata/sonata_admin.yml }
 
     - { resource: "@SadminBundle/Resources/config/admin.yml" }
+    - { resource: "@CipeeBundle/Resources/config/admin.yml" }
 
 framework:
     #esi:             ~
@@ -84,10 +85,12 @@ doctrine:
                 connection: default
                 mappings:
                     SadminBundle: ~
+                    CipeeBundle: ~
             customer:
                 connection: customer
                 mappings:
                     SadminBundle: ~
+                    CipeeBundle: ~
         auto_generate_proxy_classes: "%kernel.debug%"
         # auto_mapping: true
 
