@@ -25,7 +25,6 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Misd\GuzzleBundle\MisdGuzzleBundle(),*/
 
-
             //KNP HELPER BUNDLES
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
@@ -33,7 +32,6 @@ class AppKernel extends Kernel
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
-
 
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
