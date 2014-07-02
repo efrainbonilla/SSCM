@@ -1,3 +1,8 @@
+cipee:
+    resource: "@CipeeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 # Routing config
 _front:
     resource: routing_front.yml
