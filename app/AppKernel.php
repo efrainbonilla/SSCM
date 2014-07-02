@@ -40,6 +40,7 @@ class AppKernel extends Kernel
 
             //PROJECT CODE
             new SSCM\SadminBundle\SadminBundle(),
+            new SSCM\CipeeBundle\CipeeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
