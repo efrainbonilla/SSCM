@@ -84,12 +84,12 @@ doctrine:
             default:
                 connection: default
                 mappings:
-                    SadminBundle: ~
+                    # SadminBundle: ~
                     CipeeBundle: ~
             customer:
                 connection: customer
                 mappings:
-                    SadminBundle: ~
+                    # SadminBundle: ~
                     CipeeBundle: ~
         auto_generate_proxy_classes: "%kernel.debug%"
         # auto_mapping: true

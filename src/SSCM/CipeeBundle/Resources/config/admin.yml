@@ -11,3 +11,26 @@ services:
 
         # calls:
         #     - [addChild, ["@sonata.sscm.admin.estado"]]
+
+    sonata.sscm.admin.municipio:
+        class: SSCM\CipeeBundle\Admin\MunicipioAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Regiones", label:"Municipio" }
+
+        arguments:
+            - ~
+            - SSCM\CipeeBundle\Entity\Municipio
+            - ~
+
+        calls:
+            - [addChild, ["@sonata.sscm.admin.parroquia"]]
+
+    sonata.sscm.admin.parroquia:
+        class: SSCM\CipeeBundle\Admin\ParroquiaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Regiones", label:"Parroquia" }
+
+        arguments:
+            - ~
+            - SSCM\CipeeBundle\Entity\Parroquia
+            - ~
