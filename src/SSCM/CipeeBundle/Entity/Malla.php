@@ -19,7 +19,7 @@ class Malla
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiMalla = '';
+    private $codiMalla = '0';
 
     /**
      * @var string
@@ -38,7 +38,10 @@ class Malla
      */
     private $codiPfg;
 
-
+    public function __toString()
+    {
+        return $this->getNombMalla()?: '-';
+    }
 
     /**
      * Get codiMalla

@@ -43,6 +43,10 @@ class Alumno
     private $telfAlumno;
 
 
+    public function __toString()
+    {
+        return $this->getCeduAlumno()?: '-';
+    }
 
     /**
      * Get ceduAlumno

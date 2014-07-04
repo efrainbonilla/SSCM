@@ -10,17 +10,22 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class AlumnoAdmin extends Admin
 {
-
-    protected function configureShowFields(ShowMapper $showMapper)
+    /**
+     * @param DatagridMapper $datagridMapper
+     */
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $showMapper
-            ->add('ceduAlumno', 'text', array('label' => 'Cédula'))
-            ->add('nombAlumno', 'text', array('label' => 'Nombre'))
-            ->add('apellAlumno', 'text', array('label' => 'Apellido'))
-            ->add('telfAlumno', 'text', array('label' => 'Teléfono'))
+        $datagridMapper
+            ->add('ceduAlumno')
+            ->add('nombAlumno')
+            ->add('apellAlumno')
+            ->add('telfAlumno')
         ;
     }
 
+    /**
+     * @param ListMapper $listMapper
+     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -38,21 +43,25 @@ class AlumnoAdmin extends Admin
         ;
     }
 
+    /**
+     * @param FormMapper $formMapper
+     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Estudiantes')
-                ->add('ceduAlumno', 'text', array('label' => 'Cédula'))
-                ->add('nombAlumno', 'text', array('label' => 'Nombre'))
-                ->add('apellAlumno', 'text', array('label' => 'Apellido'))
-                ->add('telfAlumno', 'text', array('label' => 'Teléfono'))
-            ->end()
+            ->add('ceduAlumno')
+            ->add('nombAlumno')
+            ->add('apellAlumno')
+            ->add('telfAlumno')
         ;
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    /**
+     * @param ShowMapper $showMapper
+     */
+    protected function configureShowFields(ShowMapper $showMapper)
     {
-        $datagridMapper
+        $showMapper
             ->add('ceduAlumno')
             ->add('nombAlumno')
             ->add('apellAlumno')

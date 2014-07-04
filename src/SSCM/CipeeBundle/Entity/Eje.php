@@ -19,7 +19,7 @@ class Eje
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $codiEje = '';
+    private $codiEje = '0';
 
     /**
      * @var string
@@ -40,7 +40,10 @@ class Eje
      */
     private $codiEdo;
 
-
+    public function __toString()
+    {
+        return $this->getNombEje()?: '-';
+    }
 
     /**
      * Set codiEje

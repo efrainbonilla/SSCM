@@ -19,7 +19,7 @@ class Municipio
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiMuni = '';
+    private $codiMuni = '0';
 
     /**
      * @var string
@@ -45,7 +45,10 @@ class Municipio
      */
     private $codiEdo;
 
-
+    public function __toString()
+    {
+        return $this->getNombMuni()?: '-';
+    }
 
     /**
      * Get codiMuni

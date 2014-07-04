@@ -19,7 +19,7 @@ class Parroquia
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiParroq = '';
+    private $codiParroq = '0';
 
     /**
      * @var string
@@ -38,7 +38,10 @@ class Parroquia
      */
     private $codiMuni;
 
-
+    public function __toString()
+    {
+        return $this->getNombParroq()?: '-';
+    }
 
     /**
      * Get codiParroq

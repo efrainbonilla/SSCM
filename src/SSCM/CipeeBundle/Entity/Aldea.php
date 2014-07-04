@@ -19,7 +19,7 @@ class Aldea
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id = '';
+    private $codiAldea = '0';
 
     /**
      * @var string
@@ -39,15 +39,19 @@ class Aldea
     private $codiParroq;
 
 
+    public function __toString()
+    {
+        return $this->getNombAldea()?: '-';
+    }
 
     /**
-     * Get id
+     * Get codiAldea
      *
      * @return string 
      */
-    public function getId()
+    public function getCodiAldea()
     {
-        return $this->id;
+        return $this->codiAldea;
     }
 
     /**

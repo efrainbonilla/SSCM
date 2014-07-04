@@ -19,7 +19,7 @@ class Estado
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiEdo = '';
+    private $codiEdo = '0';
 
     /**
      * @var string
@@ -28,7 +28,10 @@ class Estado
      */
     private $nombEdo;
 
-
+    public function __toString()
+    {
+        return $this->getNombEdo()?: '-';
+    }
 
     /**
      * Get codiEdo

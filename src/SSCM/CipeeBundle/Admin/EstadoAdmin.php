@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ParroquiaAdmin extends Admin
+class EstadoAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -16,9 +16,8 @@ class ParroquiaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('codiParroq')
-            ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('codiEdo')
+            ->add('nombEdo')
         ;
     }
 
@@ -28,9 +27,8 @@ class ParroquiaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('codiParroq')
-            ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('codiEdo')
+            ->add('nombEdo')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,9 +45,8 @@ class ParroquiaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('codiParroq')
-            ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('codiEdo')
+            ->add('nombEdo')
         ;
     }
 
@@ -59,9 +56,8 @@ class ParroquiaAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('codiParroq')
-            ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('codiEdo')
+            ->add('nombEdo')
         ;
     }
 }

@@ -19,7 +19,7 @@ class Pfg
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codiPfg = '';
+    private $codiPfg = '0';
 
     /**
      * @var string
@@ -28,7 +28,10 @@ class Pfg
      */
     private $nombPfg;
 
-
+    public function __toString()
+    {
+        return $this->getNombPfg()?: '-';
+    }
 
     /**
      * Get codiPfg
