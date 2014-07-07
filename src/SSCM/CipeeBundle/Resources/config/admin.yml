@@ -1,0 +1,50 @@
+services:
+    cipee.admin.estado:
+        class: SSCM\CipeeBundle\Admin\EstadoAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Estado, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Regiones, label: Estado}
+        calls:
+            - [addChild, ["@cipee.admin.parroquia"]]
+
+    cipee.admin.eje:
+        class: SSCM\CipeeBundle\Admin\EjeAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Eje, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Regiones, label: Eje}
+
+    cipee.admin.municipio:
+        class: SSCM\CipeeBundle\Admin\MunicipioAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Municipio, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Regiones, label: Municipio}
+
+    cipee.admin.parroquia:
+        class: SSCM\CipeeBundle\Admin\ParroquiaAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Parroquia, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Regiones, label: Parroquia}
+
+    cipee.admin.aldea:
+        class: SSCM\CipeeBundle\Admin\AldeaAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Aldea, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Regiones, label: Aldea}
+
+    cipee.admin.alumno:
+        class: SSCM\CipeeBundle\Admin\AlumnoAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Alumno, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Estudiantes, label: Alumno}
+
+    cipee.admin.pfg:
+        class: SSCM\CipeeBundle\Admin\PfgAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Pfg, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Area Académica", label: Pfg}
+
+    cipee.admin.malla:
+        class: SSCM\CipeeBundle\Admin\MallaAdmin
+        arguments: [~, SSCM\CipeeBundle\Entity\Malla, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Area Académica", label: Malla}

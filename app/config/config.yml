@@ -3,17 +3,29 @@ imports:
     - { resource: security.yml }
     - { resource: assetic.yml }
 
+    # FOS Feature Bundle
+    - { resource: fos/fos_user.yml }
+    - { resource: fos/fos_rest.yml }
+
     # Sonata Core Bundle
+    - { resource: sonata/sonata_core.yml }
     - { resource: sonata/sonata_block.yml }
 
     # Sonata Feature Bundle
     - { resource: sonata/sonata_admin.yml }
+    - { resource: sonata/sonata_cache.yml }
+    - { resource: sonata/sonata_formatter.yml }
+    - { resource: sonata/sonata_user.yml }
 
-    - { resource: "@SadminBundle/Resources/config/admin.yml" }
+    # Knp Featere Bundle
+    - { resource: knp/knp_menu.yml }
+
+    # - { resource: "@SadminBundle/Resources/config/admin.yml" }
+    - { resource: "@CipeeBundle/Resources/config/admin.yml" }
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -37,7 +49,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
+    form:
+        resources:
+            - 'SonataFormatterBundle:Form:formatter.html.twig'
 # # Assetic Configuration
 # assetic:
 #     debug:          "%kernel.debug%"
@@ -54,18 +68,46 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+
+        default_connection: default
+        connections:
+            default:
+                driver:   "%database_driver%"
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+            customer:
+                driver:   "%database_driver2%"
+                host:     "%database_host2%"
+                port:     "%database_port2%"
+                dbname:   "%database_name2%"
+                user:     "%database_user2%"
+                password: "%database_password2%"
+                charset:  UTF8
+
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
 
     orm:
+        # default_entity_manager: default
+        # entity_managers:
+        #     default:
+        #         connection: default
+        #         mappings:
+        #             # SadminBundle: ~
+        #             CipeeBundle: ~
+        #             ApplicationSonataUserBundle: ~
+        #     customer:
+        #         connection: customer
+        #         mappings:
+        #             # SadminBundle: ~
+        #             CipeeBundle: ~
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
@@ -82,12 +124,4 @@ swiftmailer:
 sensio_framework_extra:
     view:
         annotations: false
-
-# fos_rest:
-#     param_fetcher_listener: true
-#     body_listener: true
-#     format_listener: true
-#     view:
-#         view_response_listener: 'force'
-
 

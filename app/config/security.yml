@@ -1,51 +1,69 @@
 security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_ADMIN:         [ROLE_USER, ROLE_SONATA_ADMIN]
+        ROLE_SUPER_ADMIN:   [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        SONATA:
+            - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT
+
     providers:
-        in_memory:
-            memory: ~
+        fos_userbundle:
+            id: fos_user.user_manager
+        # in_memory:
+        #     memory: ~
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        default:
-            anonymous: ~
+        admin:
+            pattern:            /admin(.*)
+            context:            user
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /admin/login
+                use_forward:   false
+                check_path:     /admin/login_check
+                failure_path:   null
+                use_referer:    true
+                default_target_path:    /admin/dashboard
+            logout:
+                path:       /admin/logout
+                target:     /admin/login
+                invalidate_session: false
+            anonymous:  true
 
-# security:
-#     encoders:
-#         Symfony\Component\Security\Core\User\User: plaintext
-
-#     role_hierarchy:
-#         ROLE_ADMIN:       ROLE_USER
-#         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
-
-#     providers:
-#         in_memory:
-#             memory:
-#                 users:
-#                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-#                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-
-#     firewalls:
-#         dev:
-#             pattern:  ^/(_(profiler|wdt)|css|images|js)/
-#             security: false
-
-        # login:
-        #     pattern:  ^/demo/secured/login$
-        #     security: false
-
-        # secured_area:
-        #     pattern:    ^/demo/secured/
-        #     form_login:
-        #         check_path: _security_check
-        #         login_path: _demo_login
-        #     logout:
-        #         path:   _demo_logout
-        #         target: _demo
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+        main:
+            pattern:        .*
+            context:        user
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /admin/login
+                use_forward:    false
+                check_path:     /admin/login_check
+                failure_path:   null
+                use_referer:    true
+                default_target_path:    /admin/dashboard
+            logout:
+                path:           /admin/logout
+                target:         /admin/login
+                invalidate_session: false
+            anonymous:          true
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        # URL de FOUserBundle que necesitan para acceder como usuario anonimo.
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # Admin página de acceso que necesitan para acceder con credenciales
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        # Seguridad parte del Sitio
+        - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

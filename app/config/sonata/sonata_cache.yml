@@ -1,0 +1,8 @@
+sonata_cache: ~
+# sonata_cache:
+#     caches:
+#         apc:
+#             token: s3cur3
+#             prefix:	test
+#             servers:
+#                - { domain: kooqit.local, ip: 127.0.0.1, port: 80 }
