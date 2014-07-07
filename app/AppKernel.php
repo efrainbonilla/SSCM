@@ -20,13 +20,14 @@ class AppKernel extends Kernel
 
             //API
             /*new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Misd\GuzzleBundle\MisdGuzzleBundle(),*/
 
             //KNP HELPER BUNDLES
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
             // SONATA CORE & HELPER BUNDLES
             new Sonata\CoreBundle\SonataCoreBundle(),
@@ -35,9 +36,27 @@ class AppKernel extends Kernel
 
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
+
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\CacheBundle\SonataCacheBundle(),
+
+            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
+
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 
             //PROJECT CODE
-            new SSCM\SadminBundle\SadminBundle(),
+            /*new SSCM\SadminBundle\SadminBundle(),*/
             new SSCM\CipeeBundle\CipeeBundle(),
         );
 
