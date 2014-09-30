@@ -42,7 +42,7 @@ class EstadoController extends FOSRestController implements ClassResourceInterfa
 
         $criteria['codiPais'] = $PaisId;
 
-    	$em = $this->getDoctrine()->getManager();
+    	$em = $this->getDoctrine()->getManager('customer');
 
     	$entity = $em->getRepository('SadminBundle:ListEstado')
     		->findBy($criteria, $orderBy, $perPage, $offset );

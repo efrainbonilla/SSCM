@@ -3,12 +3,17 @@
 namespace SSCM\CipeeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\Groups;
+use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Malla
  *
  * @ORM\Table(name="malla", indexes={@ORM\Index(name="codi_pfg", columns={"codi_pfg"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class Malla
 {
@@ -17,14 +22,16 @@ class Malla
      *
      * @ORM\Column(name="codi_malla", type="string", length=11, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @Expose
      */
-    private $codiMalla = '0';
+    private $codiMalla = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="nomb_malla", type="string", length=100, nullable=true)
+     * @Expose
      */
     private $nombMalla;
 
@@ -35,8 +42,9 @@ class Malla
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codi_pfg", referencedColumnName="codi_pfg")
      * })
+     * @Expose
      */
-    private $codiPfg;
+    private $pfg;
 
     public function __toString()
     {

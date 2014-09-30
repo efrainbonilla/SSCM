@@ -76,10 +76,10 @@ class ListParroquia
     /**
      * Set codiMuni
      *
-     * @param \SSCM\SadminBundle\Entity\ListMunicipio $codiMuni
+     * @param \SSCM\SadminBundle\Entity\Municipio $codiMuni
      * @return ListParroquia
      */
-    public function setCodiMuni(\SSCM\SadminBundle\Entity\ListMunicipio $codiMuni = null)
+    public function setCodiMuni(\SSCM\SadminBundle\Entity\Municipio $codiMuni = null)
     {
         $this->codiMuni = $codiMuni;
 
@@ -89,7 +89,7 @@ class ListParroquia
     /**
      * Get codiMuni
      *
-     * @return \SSCM\SadminBundle\Entity\ListMunicipio 
+     * @return \SSCM\SadminBundle\Entity\Municipio 
      */
     public function getCodiMuni()
     {

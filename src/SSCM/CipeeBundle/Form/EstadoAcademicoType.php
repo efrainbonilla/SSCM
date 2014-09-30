@@ -1,12 +1,12 @@
 <?php
 
-namespace SSCM\SadminBundle\Form;
+namespace SSCM\CipeeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ListPaisType extends AbstractType
+class EstadoAcademicoType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,10 @@ class ListPaisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombPais')
-            ->add('latPais')
-            ->add('lngPais')
+            ->add('estatus')
+            ->add('almn')
+            ->add('malla')
+            ->add('aldea')
         ;
     }
     
@@ -27,7 +28,7 @@ class ListPaisType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SSCM\SadminBundle\Entity\ListPais'
+            'data_class' => 'SSCM\CipeeBundle\Entity\EstadoAcademico'
         ));
     }
 
@@ -36,6 +37,6 @@ class ListPaisType extends AbstractType
      */
     public function getName()
     {
-        return 'sscm_sadminbundle_listpais';
+        return 'sscm_cipeebundle_estadoacademico';
     }
 }

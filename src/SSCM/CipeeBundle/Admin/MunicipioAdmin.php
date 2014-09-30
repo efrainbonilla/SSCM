@@ -18,7 +18,9 @@ class MunicipioAdmin extends Admin
         $datagridMapper
             ->add('codiMuni')
             ->add('nombMuni')
-            ->add('codiEje')
+            ->add('edo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
         ;
     }
 
@@ -30,7 +32,9 @@ class MunicipioAdmin extends Admin
         $listMapper
             ->add('codiMuni')
             ->add('nombMuni')
-            ->add('codiEje')
+            ->add('edo.nombEdo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -49,7 +53,9 @@ class MunicipioAdmin extends Admin
         $formMapper
             ->add('codiMuni')
             ->add('nombMuni')
-            ->add('codiEje', null)
+            ->add('edo', null, array(
+                'label' => 'list.label_nomb_edo',
+            ))
         ;
     }
 
@@ -61,7 +67,14 @@ class MunicipioAdmin extends Admin
         $showMapper
             ->add('codiMuni')
             ->add('nombMuni')
-            ->add('codiEje', null)
+            ->add('edo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
         ;
+    }
+
+    public function getExportFields()
+    {
+        return array( 'CÓDIGO MUNICIPIO' => 'codiMuni', 'MUNICIPIO' => 'nombMuni', 'ESTADO' => 'edo.nombEdo');
     }
 }

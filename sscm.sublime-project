@@ -10,7 +10,7 @@
 	{
 		"xdebug":
 		{
-			"url": "http://localhost/SSCM/web/app_dev.php/"
+			"url": "http://localhost/SSCM/web/app_dev.php/api/pfgs.json"
 		}
 	}
 }

@@ -1,0 +1,32 @@
+_estado:
+    type: rest
+    resource: "@CipeeBundle/Controller/EstadoRESTController.php"
+
+_municipio:
+    type: rest
+    resource: "@CipeeBundle/Controller/MunicipioRESTController.php"
+
+_parroquia:
+    type: rest
+    resource: "@CipeeBundle/Controller/ParroquiaRESTController.php"
+
+_aldea:
+    type: rest
+    resource: "@CipeeBundle/Controller/AldeaRESTController.php"
+
+_pfg:
+    type: rest
+    resource: "@CipeeBundle/Controller/PfgRESTController.php"
+
+_malla:
+    type: rest
+    resource: "@CipeeBundle/Controller/MallaRESTController.php"
+
+_alumno:
+    type: rest
+    resource: "@CipeeBundle/Controller/Alumno2RESTController.php"
+
+_estadoacademico:
+    type: rest
+    parent:   _alumno
+    resource: "@CipeeBundle/Controller/EstadoAcademico2RESTController.php"

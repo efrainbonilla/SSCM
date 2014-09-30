@@ -10,14 +10,22 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class EjeAdmin extends Admin
 {
+    protected $datagridValues = array(
+        '_page'       => 1,
+        '_per_page'   => 25,
+        '_sort_by' => 'edo.nombEdo',
+        '_sort_order' => 'ASC'
+    );
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('codiEje')
             ->add('nombEje')
+            ->add('edo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
         ;
     }
 
@@ -27,9 +35,10 @@ class EjeAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('codiEje')
             ->add('nombEje')
-            ->add('codiEdo', null)
+            ->add('edo.nombEdo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -48,7 +57,9 @@ class EjeAdmin extends Admin
         $formMapper
             ->add('codiEje')
             ->add('nombEje')
-            ->add('codiEdo', null)
+            ->add('edo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
         ;
     }
 
@@ -60,6 +71,9 @@ class EjeAdmin extends Admin
         $showMapper
             ->add('codiEje')
             ->add('nombEje')
+            ->add('edo.nombEdo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
         ;
     }
 }

@@ -71,9 +71,9 @@ doctrine:
         types:
             json: Sonata\Doctrine\Types\JsonType
 
-        default_connection: default
+        default_connection: db_cipee
         connections:
-            default:
+            db_cipee:
                 driver:   "%database_driver%"
                 host:     "%database_host%"
                 port:     "%database_port%"
@@ -81,7 +81,7 @@ doctrine:
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
-            customer:
+            db_sscm:
                 driver:   "%database_driver2%"
                 host:     "%database_host2%"
                 port:     "%database_port2%"
@@ -95,21 +95,24 @@ doctrine:
         # path:     "%database_path%"
 
     orm:
-        # default_entity_manager: default
-        # entity_managers:
-        #     default:
-        #         connection: default
-        #         mappings:
-        #             # SadminBundle: ~
-        #             CipeeBundle: ~
-        #             ApplicationSonataUserBundle: ~
-        #     customer:
-        #         connection: customer
-        #         mappings:
-        #             # SadminBundle: ~
-        #             CipeeBundle: ~
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        default_entity_manager: db_cipee
+        entity_managers:
+            db_cipee:
+                connection: db_cipee
+                mappings:
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
+                    FOSUserBundle: ~
+                    SonataAdminBundle: ~
+                    CipeeBundle: ~
+
+            db_sscm:
+                connection: db_sscm
+                # mappings:
+                    # SadminBundle: ~
+
+        # auto_generate_proxy_classes: "%kernel.debug%"
+        # auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -121,7 +124,6 @@ swiftmailer:
 
 
 # Sensio Framework Extra Configuration
-sensio_framework_extra:
-    view:
-        annotations: false
-
+# sensio_framework_extra:
+#     view:
+#         annotations: false

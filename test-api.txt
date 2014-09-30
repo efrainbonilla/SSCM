@@ -1,0 +1,27 @@
+http://localhost/SSCM/web/app_dev.php/api/alumnos
+
+http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326
+
+http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos
+
+http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos/20
+
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs
+
+POST http://localhost/SSCM/web/app_dev.php/api/pfgs
+
+{
+	"codiPfg": "NEWS",
+	"nombPfg": "NUEVO PFG"
+}
+
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWS
+
+PUT http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWS
+
+{
+	"codiPfg": "NEWSssss",
+	"nombPfg": "NUEVOS PFGS"
+}
+
+DELETE http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWS

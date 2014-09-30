@@ -15,115 +15,116 @@ class Alumno
     /**
      * @var string
      *
-     * @ORM\Column(name="cedu_alumno", type="string", length=11, nullable=false)
+     * @ORM\Column(name="cedu_almn", type="string", length=11, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\OneToMany(targetEntity="EstadoAcademico", mappedBy="almn")
      */
-    private $ceduAlumno = '0';
+    private $ceduAlmn = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nomb_alumno", type="string", length=100, nullable=true)
+     * @ORM\Column(name="nomb_almn", type="string", length=100, nullable=true)
      */
-    private $nombAlumno;
+    private $nombAlmn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apell_alumno", type="string", length=100, nullable=true)
+     * @ORM\Column(name="apell_almn", type="string", length=100, nullable=true)
      */
-    private $apellAlumno;
+    private $apellAlmn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telf_alumno", type="string", length=50, nullable=true)
+     * @ORM\Column(name="telf_almn", type="string", length=50, nullable=true)
      */
-    private $telfAlumno;
+    private $telfAlmn;
 
 
     public function __toString()
     {
-        return $this->getCeduAlumno()?: '-';
+        return $this->getCeduAlmn()?: '-';
     }
 
     /**
-     * Get ceduAlumno
+     * Get ceduAlmn
      *
      * @return string 
      */
-    public function getCeduAlumno()
+    public function getCeduAlmn()
     {
-        return $this->ceduAlumno;
+        return $this->ceduAlmn;
     }
 
     /**
-     * Set nombAlumno
+     * Set nombAlmn
      *
-     * @param string $nombAlumno
+     * @param string $nombAlmn
      * @return Alumno
      */
-    public function setNombAlumno($nombAlumno)
+    public function setNombAlmn($nombAlmn)
     {
-        $this->nombAlumno = $nombAlumno;
+        $this->nombAlmn = $nombAlmn;
 
         return $this;
     }
 
     /**
-     * Get nombAlumno
+     * Get nombAlmn
      *
      * @return string 
      */
-    public function getNombAlumno()
+    public function getNombAlmn()
     {
-        return $this->nombAlumno;
+        return $this->nombAlmn;
     }
 
     /**
-     * Set apellAlumno
+     * Set apellAlmn
      *
-     * @param string $apellAlumno
+     * @param string $apellAlmn
      * @return Alumno
      */
-    public function setApellAlumno($apellAlumno)
+    public function setApellAlmn($apellAlmn)
     {
-        $this->apellAlumno = $apellAlumno;
+        $this->apellAlmn = $apellAlmn;
 
         return $this;
     }
 
     /**
-     * Get apellAlumno
+     * Get apellAlmn
      *
      * @return string 
      */
-    public function getApellAlumno()
+    public function getApellAlmn()
     {
-        return $this->apellAlumno;
+        return $this->apellAlmn;
     }
 
     /**
-     * Set telfAlumno
+     * Set telfAlmn
      *
-     * @param string $telfAlumno
+     * @param string $telfAlmn
      * @return Alumno
      */
-    public function setTelfAlumno($telfAlumno)
+    public function setTelfAlmn($telfAlmn)
     {
-        $this->telfAlumno = $telfAlumno;
+        $this->telfAlmn = $telfAlmn;
 
         return $this;
     }
 
     /**
-     * Get telfAlumno
+     * Get telfAlmn
      *
      * @return string 
      */
-    public function getTelfAlumno()
+    public function getTelfAlmn()
     {
-        return $this->telfAlumno;
+        return $this->telfAlmn;
     }
 }

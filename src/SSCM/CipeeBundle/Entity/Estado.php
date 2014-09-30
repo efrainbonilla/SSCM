@@ -34,7 +34,7 @@ class Estado
     }
 
     /**
-     * Get codiEdo
+     * Get id
      *
      * @return string 
      */

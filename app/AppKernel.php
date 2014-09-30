@@ -19,10 +19,11 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             //API
-            /*new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
+            new Voryx\RESTGeneratorBundle\VoryxRESTGeneratorBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new Nelmio\CorsBundle\NelmioCorsBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-            new Misd\GuzzleBundle\MisdGuzzleBundle(),*/
+            /*new Misd\GuzzleBundle\MisdGuzzleBundle(),*/
 
             //KNP HELPER BUNDLES
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -43,10 +44,9 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\CacheBundle\SonataCacheBundle(),
 
-            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
 
-            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),

@@ -1,0 +1,9 @@
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /doc
+    # host:     "%main_host%"
+
+api_cipee:
+    type: rest
+    resource: '@CipeeBundle/Resources/config/routing_api.yml'
+    # host: "%api_host%"

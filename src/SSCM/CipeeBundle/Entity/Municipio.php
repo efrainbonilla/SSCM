@@ -43,7 +43,7 @@ class Municipio
      *   @ORM\JoinColumn(name="codi_edo", referencedColumnName="codi_edo")
      * })
      */
-    private $codiEdo;
+    private $edo;
 
     public function __toString()
     {

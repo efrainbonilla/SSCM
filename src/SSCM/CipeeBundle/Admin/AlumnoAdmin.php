@@ -16,10 +16,10 @@ class AlumnoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ceduAlumno')
-            ->add('nombAlumno')
-            ->add('apellAlumno')
-            ->add('telfAlumno')
+            ->add('ceduAlmn')
+            ->add('nombAlmn')
+            ->add('apellAlmn')
+            ->add('telfAlmn')
         ;
     }
 
@@ -29,10 +29,10 @@ class AlumnoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('ceduAlumno')
-            ->add('nombAlumno')
-            ->add('apellAlumno')
-            ->add('telfAlumno')
+            ->add('ceduAlmn')
+            ->add('nombAlmn')
+            ->add('apellAlmn')
+            ->add('telfAlmn')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -49,10 +49,10 @@ class AlumnoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ceduAlumno')
-            ->add('nombAlumno')
-            ->add('apellAlumno')
-            ->add('telfAlumno')
+            ->add('ceduAlmn')
+            ->add('nombAlmn')
+            ->add('apellAlmn')
+            ->add('telfAlmn')
         ;
     }
 
@@ -62,10 +62,10 @@ class AlumnoAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('ceduAlumno')
-            ->add('nombAlumno')
-            ->add('apellAlumno')
-            ->add('telfAlumno')
+            ->add('ceduAlmn')
+            ->add('nombAlmn')
+            ->add('apellAlmn')
+            ->add('telfAlmn')
         ;
     }
 }

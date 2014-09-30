@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ListEstadoType extends AbstractType
+class PaisType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,9 @@ class ListEstadoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombEdo')
-            ->add('codiPais', new ListPaisType())
+            ->add('nombPais')
+            ->add('latPais')
+            ->add('lngPais')
         ;
     }
     
@@ -26,8 +27,7 @@ class ListEstadoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SSCM\SadminBundle\Entity\ListEstado',
-            'cascade_validation' => true
+            'data_class' => 'SSCM\SadminBundle\Entity\Pais'
         ));
     }
 
@@ -36,6 +36,6 @@ class ListEstadoType extends AbstractType
      */
     public function getName()
     {
-        return 'sscm_sadminbundle_listestado';
+        return 'sscm_sadminbundle_listpais';
     }
 }

@@ -1,56 +1,57 @@
 <?php
 
-namespace SSCM\SadminBundle\Controller;
+namespace SSCM\CipeeBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Form;
-
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-use SSCM\SadminBundle\Entity\ListEje;
-use SSCM\SadminBundle\Form\ListEjeType;
-
-use FOS\RestBundle\View\View as FOSView;
+use FOS\RestBundle\Controller\Annotations\Get;
+use FOS\RestBundle\Controller\Annotations\QueryParam;
+use FOS\RestBundle\Controller\Annotations\RouteResource;
+use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\Util\Codes;
+use FOS\RestBundle\View\View as FOSView;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use SSCM\CipeeBundle\Entity\Pfg;
+use SSCM\CipeeBundle\Form\PfgType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-use FOS\RestBundle\Controller\Annotations\QueryParam;
-use FOS\RestBundle\Controller\Annotations\View;
-use FOS\RestBundle\Controller\Annotations\RouteResource;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Voryx\RESTGeneratorBundle\Controller\VoryxController;
 
 /**
- * ListEje controller.
- * @RouteResource("eje")
+ * Pfg controller.
+ * @RouteResource("Pfg")
  */
-class ListEjeRESTController extends VoryxController
+class PfgRESTController extends VoryxController
 {
     /**
-     * Get a ListEje entity
+     * Get a Pfg entity
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
      */
-    public function getAction(ListEje $entity)
+    public function getAction(Pfg $entity)
     {
         return $entity;
     }
-
     /**
-     * Get all ListEje entities.
+     * Get all Pfg entities.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
-     * @param \FOS\RestBundle\Request\ParamFetcherInterface $paramFetcher
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param ParamFetcherInterface $paramFetcher
+     *
+     * @return Response
      *
      * @QueryParam(name="offset", requirements="\d+", nullable=true, description="Offset from which to start listing notes.")
      * @QueryParam(name="limit", requirements="\d+", default="20", description="How many notes to return.")
      * @QueryParam(name="order_by", nullable=true, array=true, description="Order by fields. Must be an array ie. &order_by[name]=ASC&order_by[description]=DESC")
      * @QueryParam(name="filters", nullable=true, array=true, description="Filter by fields. Must be an array ie. &filters[id]=3")
-     *
      */
     public function cgetAction(ParamFetcherInterface $paramFetcher)
     {
@@ -60,32 +61,35 @@ class ListEjeRESTController extends VoryxController
             $order_by = $paramFetcher->get('order_by');
             $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
 
-            $em = $this->getDoctrine()->getManager('db_sscm');
-            $entities = $em->getRepository('SadminBundle:ListEje', 'db_sscm')->findBy($filters, $order_by, $limit, $offset);
+            $em = $this->getDoctrine()->getManager();
+            $entities = $em->getRepository('CipeeBundle:Pfg')->findBy($filters, $order_by, $limit, $offset);
             if ($entities) {
                 return $entities;
-            } else {
-                return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
             }
+
+            return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
         } catch (\Exception $e) {
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
     /**
-     * Create a ListEje entity.
+     * Create a Pfg entity.
      *
      * @View(statusCode=201, serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @return Response
      *
      */
     public function postAction(Request $request)
     {
+        $entity = new Pfg();
+        $req = $request->request;
 
-        $entity = new ListEje();
-        $form = $this->createForm(new ListEjeType(), $entity, array("method" => $request->getMethod()));
+        $form = $this->createForm(new PfgType(), $entity, array("method" => $request->getMethod()));
         $this->removeExtraFields($request, $form);
         $form->handleRequest($request);
 
@@ -99,25 +103,23 @@ class ListEjeRESTController extends VoryxController
 
         return FOSView::create(array('errors' => $form->getErrors()), Codes::HTTP_INTERNAL_SERVER_ERROR);
     }
-
     /**
-     * Update a ListEje entity.
+     * Update a Pfg entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
-     * @return \Symfony\Component\HttpFoundation\Response
      *
-     *
+     * @return Response
      */
-    public function putAction(Request $request, ListEje $entity)
+    public function putAction(Request $request, Pfg $entity)
     {
-
         try {
             $em = $this->getDoctrine()->getManager();
             $request->setMethod('PATCH'); //Treat all PUTs as PATCH
-            $form = $this->createForm(new ListEjeType(), $entity, array("method" => $request->getMethod()));
+            $form = $this->createForm(new PfgType(), $entity, array("method" => $request->getMethod()));
             $this->removeExtraFields($request, $form);
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -130,46 +132,38 @@ class ListEjeRESTController extends VoryxController
         } catch (\Exception $e) {
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
-
     }
-
-/**
-    * Partial Update to a ListEje entity.
-    *
-    * @View(serializerEnableMaxDepthChecks=true)
-    *
-    * @param Request $request
-    * @param $entity
-    * @return \Symfony\Component\HttpFoundation\Response
-    *
-*
-    */
-    public function patchAction(Request $request, ListEje $entity)
-    {
-
-        return $this->putAction($request, $entity);
-
-
-
-    }
-
     /**
-     * Delete a ListEje entity.
+     * Partial Update to a Pfg entity.
+     *
+     * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
+     *
+     * @param Request $request
+     * @param $entity
+     *
+     * @return Response
+    */
+    public function patchAction(Request $request, Pfg $entity)
+    {
+        return $this->putAction($request, $entity);
+    }
+    /**
+     * Delete a Pfg entity.
      *
      * @View(statusCode=204)
+     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
      * @internal param $id
-     * @return \Symfony\Component\HttpFoundation\Response
      *
+     * @return Response
      */
-    public function deleteAction(Request $request, ListEje $entity)
+    public function deleteAction(Request $request, Pfg $entity)
     {
-
         try {
             $em = $this->getDoctrine()->getManager();
-            $em->merge($entity);
             $em->remove($entity);
             $em->flush();
 
@@ -177,10 +171,45 @@ class ListEjeRESTController extends VoryxController
         } catch (\Exception $e) {
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
-
     }
 
+    /**
+     * Get all Pfg/Mallas entities.
+     *
+     * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
+     *
+     * @param $codiPfg
+     *
+     * @return Response
+     * 
+     */
+    public function getMallasAction($codiPfg)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder()
+                ->select(array('m.codiMalla AS codi_malla', 'm.nombMalla', 'p.nombPfg', 'p.codiPfg')  /*'m'*/)
+                ->from('SSCM\CipeeBundle\Entity\Malla', 'm')
+                ->innerJoin('m.pfg', 'p', 'm.pfg = p.codiPfg')
+                ->where('m.pfg = ?1')
+                ->setParameter(1, $codiPfg);
+
+        $query  = $qb->getQuery();
+        $results = $query->execute();
+
+        if ($results) {
+
+            return $results;
 
 
 
+            $dql    = $query->getDql();
+            return array(
+                array('dql' => $dql),
+                array('entity' => $results)
+            );
+        }
+
+        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
+    }
 }

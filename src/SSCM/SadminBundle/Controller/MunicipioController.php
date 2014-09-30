@@ -1,7 +1,7 @@
 <?php
 namespace SSCM\SadminBundle\Controller;
 
-use SSCM\SadminBundle\Entity\ListMunicipio;
+use SSCM\SadminBundle\Entity\Municipio;
 use SSCM\SadminBundle\Entity\ListEstado;
 use SSCM\SadminBundle\Entity\ListPais;
 use SSCM\SadminBundle\Util\Utility;

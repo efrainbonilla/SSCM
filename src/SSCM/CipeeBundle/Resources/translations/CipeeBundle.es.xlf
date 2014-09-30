@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="es" datatype="plaintext" original="" >
+        <body>
+            <trans-unit id="list.label_codi">
+                <source>list.label_codi</source>
+                <target>CÓDIGO</target>
+            </trans-unit>
+            <trans-unit id="list.label_edo">
+                <source>list.label_edo</source>
+                <target>ESTADO</target>
+            </trans-unit>
+            <trans-unit id="list.label_muni">
+                <source>list.label_muni</source>
+                <target>MUNICIPIO</target>
+            </trans-unit>
+            <trans-unit id="list.label_parroq">
+                <source>list.label_parroq</source>
+                <target>PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="list.label_aldea">
+                <source>list.label_aldea</source>
+                <target>MUNICIPIO</target>
+            </trans-unit>
+            <trans-unit id="list.label_eje">
+                <source>list.label_eje</source>
+                <target>EJE</target>
+            </trans-unit>
+            <trans-unit id="list.label_almn">
+                <source>list.label_almn</source>
+                <target>ALUMNO</target>
+            </trans-unit>
+
+            <trans-unit id="list.label_codi_eje">
+                <source>list.label_codi_eje</source>
+                <target>CÓDIGO EJE</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_eje">
+                <source>list.label_nomb_eje</source>
+                <target>EJE</target>
+            </trans-unit>
+            <trans-unit id="list.label_codi_edo">
+                <source>list.label_codi_edo</source>
+                <target>CÓDIGO ESTADO</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_edo">
+                <source>list.label_nomb_edo</source>
+                <target>ESTADO</target>
+            </trans-unit>
+             <trans-unit id="list.label_codi_muni">
+                <source>list.label_codi_muni</source>
+                <target>CÓDIGO MUNICIPIO</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_muni">
+                <source>list.label_nomb_muni</source>
+                <target>MUNICIPIO</target>
+            </trans-unit>
+             <trans-unit id="list.label_codi_parroq">
+                <source>list.label_codi_parroq</source>
+                <target>CÓDIGO PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_parroq">
+                <source>list.label_nomb_parroq</source>
+                <target>PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="list.label_codi_aldea">
+                <source>list.label_codi_aldea</source>
+                <target>CÓDIGO ALDEA</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_aldea">
+                <source>list.label_nomb_aldea</source>
+                <target>ALDEA</target>
+            </trans-unit>
+
+            <trans-unit id="list.label_cedu_almn">
+                <source>list.label_cedu_almn</source>
+                <target>CÉDULA</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_almn">
+                <source>list.label_nomb_almn</source>
+                <target>NOMBRE</target>
+            </trans-unit>
+            <trans-unit id="list.label_apell_almn">
+                <source>list.label_apell_almn</source>
+                <target>APELLIDO</target>
+            </trans-unit>
+            <trans-unit id="list.label_telf_almn">
+                <source>list.label_telf_almn</source>
+                <target>TELÉFONO</target>
+            </trans-unit>
+
+
+            <trans-unit id="filter.label_codi_eje">
+                <source>filter.label_codi_eje</source>
+                <target>CÓDIGO EJE</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_eje">
+                <source>filter.label_nomb_eje</source>
+                <target>EJE</target>
+            </trans-unit>
+            <trans-unit id="filter.label_codi_edo">
+                <source>filter.label_codi_edo</source>
+                <target>CÓDIGO ESTADO</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_edo">
+                <source>filter.label_nomb_edo</source>
+                <target>ESTADO</target>
+            </trans-unit>
+             <trans-unit id="filter.label_codi_muni">
+                <source>filter.label_codi_muni</source>
+                <target>CÓDIGO MUNICIPIO</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_muni">
+                <source>filter.label_nomb_muni</source>
+                <target>MUNICIPIO</target>
+            </trans-unit>
+             <trans-unit id="filter.label_codi_parroq">
+                <source>filter.label_codi_parroq</source>
+                <target>CÓDIGO PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_parroq">
+                <source>filter.label_nomb_parroq</source>
+                <target>PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="filter.label_codi_aldea">
+                <source>filter.label_codi_aldea</source>
+                <target>CÓDIGO ALDEA</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_aldea">
+                <source>filter.label_nomb_aldea</source>
+                <target>ALDEA</target>
+            </trans-unit>
+
+            <trans-unit id="filter.label_cedu_almn">
+                <source>filter.label_cedu_almn</source>
+                <target>CÉDULA</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_almn">
+                <source>filter.label_nomb_almn</source>
+                <target>NOMBRE</target>
+            </trans-unit>
+            <trans-unit id="filter.label_apell_almn">
+                <source>filter.label_apell_almn</source>
+                <target>APELLIDO</target>
+            </trans-unit>
+            <trans-unit id="filter.label_telf_almn">
+                <source>filter.label_telf_almn</source>
+                <target>TELÉFONO</target>
+            </trans-unit>
+
+
+            <trans-unit id="form.label_codi_eje">
+                <source>form.label_codi_eje</source>
+                <target>CÓDIGO EJE</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_eje">
+                <source>form.label_nomb_eje</source>
+                <target>EJE</target>
+            </trans-unit>
+            <trans-unit id="form.label_codi_edo">
+                <source>form.label_codi_edo</source>
+                <target>CÓDIGO ESTADO</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_edo">
+                <source>form.label_nomb_edo</source>
+                <target>ESTADO</target>
+            </trans-unit>
+             <trans-unit id="form.label_codi_muni">
+                <source>form.label_codi_muni</source>
+                <target>CÓDIGO MUNICIPIO</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_muni">
+                <source>form.label_nomb_muni</source>
+                <target>MUNICIPIO</target>
+            </trans-unit>
+             <trans-unit id="form.label_codi_parroq">
+                <source>form.label_codi_parroq</source>
+                <target>CÓDIGO PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_parroq">
+                <source>form.label_nomb_parroq</source>
+                <target>PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="form.label_codi_aldea">
+                <source>form.label_codi_aldea</source>
+                <target>CÓDIGO ALDEA</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_aldea">
+                <source>form.label_nomb_aldea</source>
+                <target>ALDEA</target>
+            </trans-unit>
+
+            <trans-unit id="form.label_cedu_almn">
+                <source>form.label_cedu_almn</source>
+                <target>CÉDULA</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_almn">
+                <source>form.label_nomb_almn</source>
+                <target>NOMBRE</target>
+            </trans-unit>
+            <trans-unit id="form.label_apell_almn">
+                <source>form.label_apell_almn</source>
+                <target>APELLIDO</target>
+            </trans-unit>
+            <trans-unit id="form.label_telf_almn">
+                <source>form.label_telf_almn</source>
+                <target>TELÉFONO</target>
+            </trans-unit>
+
+
+            <trans-unit id="show.label_codi_eje">
+                <source>show.label_codi_eje</source>
+                <target>CÓDIGO EJE</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_eje">
+                <source>show.label_nomb_eje</source>
+                <target>EJE</target>
+            </trans-unit>
+            <trans-unit id="show.label_codi_edo">
+                <source>show.label_codi_edo</source>
+                <target>CÓDIGO ESTADO</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_edo">
+                <source>show.label_nomb_edo</source>
+                <target>ESTADO</target>
+            </trans-unit>
+             <trans-unit id="show.label_codi_muni">
+                <source>show.label_codi_muni</source>
+                <target>CÓDIGO MUNICIPIO</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_muni">
+                <source>show.label_nomb_muni</source>
+                <target>MUNICIPIO</target>
+            </trans-unit>
+             <trans-unit id="show.label_codi_parroq">
+                <source>show.label_codi_parroq</source>
+                <target>CÓDIGO PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_parroq">
+                <source>show.label_nomb_parroq</source>
+                <target>PARROQUIA</target>
+            </trans-unit>
+            <trans-unit id="show.label_codi_aldea">
+                <source>show.label_codi_aldea</source>
+                <target>CÓDIGO ALDEA</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_aldea">
+                <source>show.label_nomb_aldea</source>
+                <target>ALDEA</target>
+            </trans-unit>
+
+            <trans-unit id="show.label_cedu_almn">
+                <source>show.label_cedu_almn</source>
+                <target>CÉDULA</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_almn">
+                <source>show.label_nomb_almn</source>
+                <target>NOMBRE</target>
+            </trans-unit>
+            <trans-unit id="show.label_apell_almn">
+                <source>show.label_apell_almn</source>
+                <target>APELLIDO</target>
+            </trans-unit>
+            <trans-unit id="show.label_telf_almn">
+                <source>show.label_telf_almn</source>
+                <target>TELÉFONO</target>
+            </trans-unit>
+
+
+            <trans-unit id="breadcrumb.link_eje_list">
+                <source>breadcrumb.link_eje_list</source>
+                <target>Ejes (Misión Sucre)</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_estado_list">
+                <source>breadcrumb.link_estado_list</source>
+                <target>Estados</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_municipio_list">
+                <source>breadcrumb.link_municipio_list</source>
+                <target>Municipios</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_parroquia_list">
+                <source>breadcrumb.link_parroquia_list</source>
+                <target>Parroquias</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_aldea_list">
+                <source>breadcrumb.link_aldea_list</source>
+                <target>Aldeas</target>
+            </trans-unit>
+
+            <trans-unit id="breadcrumb.link_alumno_list">
+                <source>breadcrumb.link_alumno_list</source>
+                <target>Alumnos</target>
+            </trans-unit>
+
+            <trans-unit id="list.label__action">
+                <source>list.label__action</source>
+                <target>Acciones</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
+
+

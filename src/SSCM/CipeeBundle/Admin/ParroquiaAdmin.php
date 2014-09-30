@@ -15,10 +15,17 @@ class ParroquiaAdmin extends Admin
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+        $domain = $this->getTranslationDomain();
+
         $datagridMapper
-            ->add('codiParroq')
-            ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('codiParroq', null)
+            ->add('nombParroq', null)
+            ->add('muni', null, array(
+                'label' => 'filter.label_nomb_muni'
+            ))
+            ->add('muni.edo', null, array(
+                'label' => 'filter.label_nomb_edo'
+            ))
         ;
     }
 
@@ -27,10 +34,17 @@ class ParroquiaAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        $domain = $this->getTranslationDomain();
+
         $listMapper
             ->add('codiParroq')
             ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('muni.nombMuni', 'text', array(
+                'label' => 'list.label_nomb_muni'
+            ))
+            ->add('muni.edo.nombEdo', 'text', array(
+                'label' => 'list.label_nomb_edo'
+            ))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,9 +61,21 @@ class ParroquiaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('codiParroq')
-            ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->with("list.label_parroq")
+
+                ->add('codiParroq', null)
+                ->add('nombParroq')
+            ->end()
+            ->with("list.label_muni")
+                ->add('muni', null, array(
+                'label' => 'list.label_nomb_muni',
+                'attr' => array(
+                    /*'data-sonata-select2' => 'false'*/
+                    /*'multiple' => 'true'*/
+                    'placeholder' => '[Seleccione Parroquia]'
+                )
+            ))
+            ->end()
         ;
     }
 
@@ -61,7 +87,22 @@ class ParroquiaAdmin extends Admin
         $showMapper
             ->add('codiParroq')
             ->add('nombParroq')
-            ->add('codiMuni', null)
+            ->add('muni', null, array(
+                'label' => 'list.label_nomb_muni'
+            ))
+            ->add('muni.edo', null, array(
+                'label' => 'list.label_nomb_edo'
+            ))
         ;
+    }
+
+    public function getExportFields()
+    {
+        return array(
+            'CÓDIGO PARROQUIA' => 'codiParroq',
+            'PARROQUIA' => 'nombParroq',
+            'MUNICIPIO' => 'muni',
+            'ESTADO' => 'muni.edo.nombEdo'
+        );
     }
 }

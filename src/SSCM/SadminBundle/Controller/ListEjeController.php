@@ -27,7 +27,7 @@ class ListEjeController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager('db_sscm');
 
         $entities = $em->getRepository('SadminBundle:ListEje')->findAll();
 

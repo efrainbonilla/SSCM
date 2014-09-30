@@ -1,39 +1,39 @@
-sadmin_index:
-    pattern:  /
-    defaults: { _controller: SadminBundle:Default:index }
+# sadmin_index:
+#     pattern:  /
+#     defaults: { _controller: SadminBundle:Default:index }
 
-sadmin_login:
-    pattern:  /login
-    defaults: { _controller: SadminBundle:Default:login }
+# sadmin_login:
+#     pattern:  /login
+#     defaults: { _controller: SadminBundle:Default:login }
 
-sadmin_register:
-    pattern:  /register
-    defaults: { _controller: SadminBundle:Default:register }
+# sadmin_register:
+#     pattern:  /register
+#     defaults: { _controller: SadminBundle:Default:register }
 
-sadmin_register_check:
-    pattern:  /register/check
-    defaults: { _controller: SadminBundle:Default:regcheck }
+# sadmin_register_check:
+#     pattern:  /register/check
+#     defaults: { _controller: SadminBundle:Default:regcheck }
 
-sadmin_lostpassword:
-    pattern:  /lostpassword
-    defaults: { _controller: SadminBundle:Default:lostpassword }
+# sadmin_lostpassword:
+#     pattern:  /lostpassword
+#     defaults: { _controller: SadminBundle:Default:lostpassword }
 
-sadmin_dashboard:
-    pattern:  /dashboard
-    defaults: { _controller: SadminBundle:Dashboard:dashboard }
+# sadmin_dashboard:
+#     pattern:  /dashboard
+#     defaults: { _controller: SadminBundle:Dashboard:dashboard }
 
-sadmin_dashboard_profe:
-    pattern:  /dashboard/profesores
-    defaults: { _controller: SadminBundle:Dashboard:profesores }
+# sadmin_dashboard_profe:
+#     pattern:  /dashboard/profesores
+#     defaults: { _controller: SadminBundle:Dashboard:profesores }
 
-sadmin_dashboard_profe_list:
-    pattern:  /dashboard/profesores/list
-    defaults: { _controller: SadminBundle:Dashboard:dynatable }
+# sadmin_dashboard_profe_list:
+#     pattern:  /dashboard/profesores/list
+#     defaults: { _controller: SadminBundle:Dashboard:dynatable }
 
-# sadmin_rest:
-#     type: rest
-#     resource: "@SadminBundle/Resources/config/routing_rest.yml"
-#     prefix:   /api
+sadmin_rest:
+    type: rest
+    resource: "@SadminBundle/Resources/config/routing_rest.yml"
+
 
 # sadmin_ejes:
 #     resource: SSCM\SadminBundle\Controller\ListEjeController

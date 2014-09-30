@@ -1,8 +1,3 @@
-cipee:
-    resource: "@CipeeBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 root:
     pattern: /
     defaults:
@@ -21,8 +16,6 @@ _admin:
 _api:
     resource: routing_api.yml
     prefix: /api
-
-
 
 # Sonata CacheBundle
 sonata_cache_cache:
