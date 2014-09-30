@@ -38,7 +38,7 @@ class Eje
      *   @ORM\JoinColumn(name="codi_edo", referencedColumnName="codi_edo")
      * })
      */
-    private $edo;
+    private $codiEdo;
 
     public function __toString()
     {

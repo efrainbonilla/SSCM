@@ -16,9 +16,9 @@ class EstadoAcademicoType extends AbstractType
     {
         $builder
             ->add('estatus')
-            ->add('almn')
-            ->add('malla')
-            ->add('aldea')
+            ->add('cecuAlmn')
+            ->add('codiMalla')
+            ->add('codiAldea')
         ;
     }
     

@@ -16,7 +16,7 @@ class MallaType extends AbstractType
     {
         $builder
             ->add('nombMalla')
-            ->add('pfg')
+            ->add('codiPfg')
         ;
     }
     

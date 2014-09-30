@@ -188,10 +188,10 @@ class PfgRESTController extends VoryxController
     {
         $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder()
-                ->select(array('m.codiMalla AS codi_malla', 'm.nombMalla', 'p.nombPfg', 'p.codiPfg')  /*'m'*/)
+                ->select(array('m.codiMalla AS codi_malla', 'm.nombMalla AS nomb_malla')  /*'m'*/)
                 ->from('SSCM\CipeeBundle\Entity\Malla', 'm')
-                ->innerJoin('m.pfg', 'p', 'm.pfg = p.codiPfg')
-                ->where('m.pfg = ?1')
+                ->innerJoin('m.codiPfg', 'p', 'm.codiPfg = p.codiPfg')
+                ->where('m.codiPfg = ?1')
                 ->setParameter(1, $codiPfg);
 
         $query  = $qb->getQuery();
@@ -212,4 +212,53 @@ class PfgRESTController extends VoryxController
 
         return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
     }
+
+    /**
+     * Get all Pfg/Alumnos entities.
+     *
+     * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
+     *
+     * @param $codiPfg
+     *
+     * @return Response
+     * 
+     */
+    public function getAlumnosAction($codiPfg)
+    {
+
+        /*SELECT a.* FROM alumno a
+        INNER JOIN estado_academico ea ON(a.cedu_almn=ea.cedu_almn)
+        INNER JOIN malla m ON(m.codi_malla=ea.codi_malla)
+        INNER JOIN pfg p ON(p.codi_pfg=m.codi_pfg)*/
+
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder()
+                ->select('a')
+                ->from('SSCM\CipeeBundle\Entity\EstadoAcademico', 'ea')
+                ->innerJoin('ea.ceduAlmn', 'a', 'ea.ceduAlmn = a.ceduAlmn')
+                ->innerJoin('ea.codiMalla', 'm', 'ea.codiMalla = m.codiMalla')
+                ->innerJoin('m.codiPfg', 'p', 'm.codiPfg = m.codiMalla')
+                ->where('m.codiPfg = ?1')
+                ->setParameter(1, $codiPfg);
+
+        $query  = $qb->getQuery();
+        $results = $query->execute();
+
+        if ($results) {
+
+            return $results;
+
+
+
+            $dql    = $query->getDql();
+            return array(
+                array('dql' => $dql),
+                array('entity' => $results)
+            );
+        }
+
+        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
+    }
+
 }

@@ -36,7 +36,7 @@ class Parroquia
      *   @ORM\JoinColumn(name="codi_muni", referencedColumnName="codi_muni")
      * })
      */
-    private $muni;
+    private $codiMuni;
 
     public function __toString()
     {

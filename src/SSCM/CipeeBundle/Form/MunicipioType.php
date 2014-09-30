@@ -17,7 +17,7 @@ class MunicipioType extends AbstractType
         $builder
             ->add('nombMuni')
             ->add('codiEje')
-            ->add('edo')
+            ->add('codiEdo')
         ;
     }
     

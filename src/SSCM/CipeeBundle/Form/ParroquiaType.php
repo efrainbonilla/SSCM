@@ -16,7 +16,7 @@ class ParroquiaType extends AbstractType
     {
         $builder
             ->add('nombParroq')
-            ->add('muni')
+            ->add('codiMuni')
         ;
     }
     

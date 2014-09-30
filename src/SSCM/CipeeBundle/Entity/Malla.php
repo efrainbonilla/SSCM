@@ -44,7 +44,7 @@ class Malla
      * })
      * @Expose
      */
-    private $pfg;
+    private $codiPfg;
 
     public function __toString()
     {

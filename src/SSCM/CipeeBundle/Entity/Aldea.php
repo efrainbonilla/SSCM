@@ -36,7 +36,7 @@ class Aldea
      *   @ORM\JoinColumn(name="codi_parroq", referencedColumnName="codi_parroq")
      * })
      */
-    private $parroq;
+    private $codiParroq;
 
 
     public function __toString()

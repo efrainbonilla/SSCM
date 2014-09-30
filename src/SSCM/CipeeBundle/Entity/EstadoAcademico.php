@@ -29,7 +29,7 @@ class EstadoAcademico
      *   @ORM\JoinColumn(name="cedu_almn", referencedColumnName="cedu_almn")
      * })
      */
-    private $almn;
+    private $ceduAlmn;
 
     /**
      * @var \Malla
@@ -39,7 +39,7 @@ class EstadoAcademico
      *   @ORM\JoinColumn(name="codi_malla", referencedColumnName="codi_malla")
      * })
      */
-    private $malla;
+    private $codiMalla;
 
 
     /**
@@ -50,7 +50,7 @@ class EstadoAcademico
      *   @ORM\JoinColumn(name="codi_aldea", referencedColumnName="codi_aldea")
      * })
      */
-    private $aldea;
+    private $codiAldea;
 
     /**
      * @var integer
@@ -93,71 +93,71 @@ class EstadoAcademico
     }
 
     /**
-     * Set malla
+     * Set codiMalla
      *
-     * @param \SSCM\CipeeBundle\Entity\Malla $malla
+     * @param \SSCM\CipeeBundle\Entity\Malla $codiMalla
      * @return EstadoAcademico
      */
-    public function setMalla(\SSCM\CipeeBundle\Entity\Malla $malla = null)
+    public function setCodiMalla(\SSCM\CipeeBundle\Entity\Malla $codiMalla = null)
     {
-        $this->malla = $malla;
+        $this->codiMalla = $codiMalla;
 
         return $this;
     }
 
     /**
-     * Get malla
+     * Get codiMalla
      *
      * @return \SSCM\CipeeBundle\Entity\Malla
      */
-    public function getMalla()
+    public function getCodiMalla()
     {
-        return $this->malla;
+        return $this->codiMalla;
     }
 
     /**
-     * Set almn
+     * Set ceduAlmn
      *
-     * @param \SSCM\CipeeBundle\Entity\Alumno $almn
+     * @param \SSCM\CipeeBundle\Entity\Alumno $ceduAlmn
      * @return EstadoAcademico
      */
-    public function setAlmn(\SSCM\CipeeBundle\Entity\Alumno $almn = null)
+    public function setCeduAlmn(\SSCM\CipeeBundle\Entity\Alumno $ceduAlmn = null)
     {
-        $this->almn = $almn;
+        $this->ceduAlmn = $ceduAlmn;
 
         return $this;
     }
 
     /**
-     * Get almn
+     * Get ceduAlmn
      *
      * @return \SSCM\CipeeBundle\Entity\Alumno
      */
-    public function getAlmn()
+    public function getCeduAlmn()
     {
-        return $this->almn;
+        return $this->ceduAlmn;
     }
 
     /**
-     * Set aldea
+     * Set codiAldea
      *
-     * @param \SSCM\CipeeBundle\Entity\Aldea $aldea
+     * @param \SSCM\CipeeBundle\Entity\Aldea $codiAldea
      * @return EstadoAcademico
      */
-    public function setAldea(\SSCM\CipeeBundle\Entity\Aldea $aldea = null)
+    public function setCodiAldea(\SSCM\CipeeBundle\Entity\Aldea $codiAldea = null)
     {
-        $this->aldea = $aldea;
+        $this->codiAldea = $codiAldea;
 
         return $this;
     }
 
     /**
-     * Get aldea
+     * Get codiAldea
      *
      * @return \SSCM\CipeeBundle\Entity\Aldea
      */
-    public function getAldea()
+    public function getCodiAldea()
     {
-        return $this->aldea;
+        return $this->codiAldea;
     }
 }
