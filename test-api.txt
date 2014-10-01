@@ -1,27 +1,55 @@
-http://localhost/SSCM/web/app_dev.php/api/alumnos
 
-http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326
+# Obtener coleccion alumnos
+GET http://localhost/SSCM/web/app_dev.php/api/alumnos
 
-http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos
+# Obtener estudiante
+GET http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326
 
-http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos/20
+# Obtener coleccion estado academico de estudiante
+GET http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos
 
-GET http://localhost/SSCM/web/app_dev.php/api/pfgs
+# Obtener estado academico de estudiante
+GET http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos/20
 
+# Crear nuevo pfg
 POST http://localhost/SSCM/web/app_dev.php/api/pfgs
 
 {
-	"codiPfg": "NEWS",
-	"nombPfg": "NUEVO PFG"
+	"codi_pfg": "NEWSS",
+	"nomb_pfg": "NUEVO PFGS"
 }
 
-GET http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWS
-
-PUT http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWS
+# Actualizar pfg
+PUT http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWSS
 
 {
-	"codiPfg": "NEWSssss",
-	"nombPfg": "NUEVOS PFGS"
+	"codi_pfg": "NEW",
+	"nomb_pfg": "NUEVO"
 }
 
-DELETE http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWS
+# Eliminar pfg
+DELETE http://localhost/SSCM/web/app_dev.php/api/pfgs/NEW
+
+# Obtener coleccion de pfgs
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs
+
+# Obtener pfg
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE
+
+
+POST http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas
+
+{
+	"codi_malla": "CODI-MALLA1",
+	"nomb_malla": "NOMB-MALLA1"
+}
+
+
+# Obtener coleccion de mallas de pfg
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas
+
+# Obtener malla curricular de pfg
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/PFE-EF
+
+# Obtener alumnos de pfg
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/alumnos

@@ -15,6 +15,7 @@ class MallaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codiMalla')
             ->add('nombMalla')
             ->add('codiPfg')
         ;
@@ -26,7 +27,8 @@ class MallaType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SSCM\CipeeBundle\Entity\Malla'
+            'data_class' => 'SSCM\CipeeBundle\Entity\Malla',
+            'csrf_protection' => false
         ));
     }
 

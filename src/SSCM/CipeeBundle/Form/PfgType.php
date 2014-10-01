@@ -18,10 +18,6 @@ class PfgType extends AbstractType
             ->add('codiPfg')
             ->add('nombPfg')
         ;
-        /*$builder
-            ->add('codi_pfg', null, array('property_path' => 'codiPfg'))
-            ->add('nomb_pfg', null, array('property_path' => 'nombPfg'))
-        ;*/
     }
 
     /**

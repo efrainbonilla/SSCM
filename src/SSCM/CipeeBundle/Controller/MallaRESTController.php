@@ -34,9 +34,23 @@ class MallaRESTController extends VoryxController
      * @return Response
      *
      */
-    public function getAction(Malla $entity)
+    public function getAction($codiPfg, $codiMalla)
     {
-        return $entity;
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('CipeeBundle:Malla')
+            ->findBy(
+                array(
+                    'codiPfg' => $ceduAlmn,
+                    'codiMalla' => $codiMalla
+                )
+            );
+
+        if (entity) {
+            return $entity;
+        }
+
+        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
     }
     /**
      * Get all Malla entities.
@@ -53,13 +67,15 @@ class MallaRESTController extends VoryxController
      * @QueryParam(name="order_by", nullable=true, array=true, description="Order by fields. Must be an array ie. &order_by[name]=ASC&order_by[description]=DESC")
      * @QueryParam(name="filters", nullable=true, array=true, description="Filter by fields. Must be an array ie. &filters[id]=3")
      */
-    public function cgetAction(ParamFetcherInterface $paramFetcher)
+    public function cgetAction(ParamFetcherInterface $paramFetcher, $codiPfg)
     {
         try {
             $offset = $paramFetcher->get('offset');
             $limit = $paramFetcher->get('limit');
             $order_by = $paramFetcher->get('order_by');
             $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
+
+            $filters['codiPfg'] = $codiPfg;
 
             $em = $this->getDoctrine()->getManager();
             $entities = $em->getRepository('CipeeBundle:Malla')->findBy($filters, $order_by, $limit, $offset);
@@ -83,7 +99,7 @@ class MallaRESTController extends VoryxController
      * @return Response
      *
      */
-    public function postAction(Request $request)
+    public function postAction(Request $request, $codiPfg)
     {
         $entity = new Malla();
         $form = $this->createForm(new MallaType(), $entity, array("method" => $request->getMethod()));
@@ -111,7 +127,7 @@ class MallaRESTController extends VoryxController
      *
      * @return Response
      */
-    public function putAction(Request $request, Malla $entity)
+    public function putAction(Request $request, $codiPfg, Malla $entity)
     {
         try {
             $em = $this->getDoctrine()->getManager();
@@ -134,22 +150,20 @@ class MallaRESTController extends VoryxController
      * Partial Update to a Malla entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
      *
      * @return Response
 */
-    public function patchAction(Request $request, Malla $entity)
+    public function patchAction(Request $request, $codiPfg, Malla $entity)
     {
-        return $this->putAction($request, $entity);
+        return $this->putAction($request, $codiPfg, $entity);
     }
     /**
      * Delete a Malla entity.
      *
      * @View(statusCode=204)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
@@ -157,7 +171,7 @@ class MallaRESTController extends VoryxController
      *
      * @return Response
      */
-    public function deleteAction(Request $request, Malla $entity)
+    public function deleteAction(Request $request, $codiPfg, Malla $entity)
     {
         try {
             $em = $this->getDoctrine()->getManager();

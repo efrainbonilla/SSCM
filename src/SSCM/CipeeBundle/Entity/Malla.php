@@ -25,7 +25,7 @@ class Malla
      * @ORM\GeneratedValue(strategy="NONE")
      * @Expose
      */
-    private $codiMalla = '';
+    private $codiMalla;
 
     /**
      * @var string
@@ -43,6 +43,7 @@ class Malla
      *   @ORM\JoinColumn(name="codi_pfg", referencedColumnName="codi_pfg")
      * })
      * @Expose
+     * @SerializedName("pfg")
      */
     private $codiPfg;
 

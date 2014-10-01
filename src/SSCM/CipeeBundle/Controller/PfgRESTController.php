@@ -137,7 +137,6 @@ class PfgRESTController extends VoryxController
      * Partial Update to a Pfg entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
@@ -182,9 +181,9 @@ class PfgRESTController extends VoryxController
      * @param $codiPfg
      *
      * @return Response
-     * 
+     *
      */
-    public function getMallasAction($codiPfg)
+    public function getMallas2Action($codiPfg)
     {
         $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder()
@@ -222,7 +221,7 @@ class PfgRESTController extends VoryxController
      * @param $codiPfg
      *
      * @return Response
-     * 
+     *
      */
     public function getAlumnosAction($codiPfg)
     {
@@ -232,29 +231,31 @@ class PfgRESTController extends VoryxController
         INNER JOIN malla m ON(m.codi_malla=ea.codi_malla)
         INNER JOIN pfg p ON(p.codi_pfg=m.codi_pfg)*/
 
+        /*SELECT a FROM SSCM\CipeeBundle\Entity\Alumno a
+        INNER JOIN SSCM\CipeeBundle\Entity\EstadoAcademico ea WITH a.ceduAlmn = ea.ceduAlmn
+        INNER JOIN SSCM\CipeeBundle\Entity\Malla m WITH ea.codiMalla = m.codiMalla
+        INNER JOIN SSCM\CipeeBundle\Entity\Pfg p WITH p.codiPfg = m.codiPfg
+        WHERE m.codiPfg = ?1*/
+
         $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder()
                 ->select('a')
-                ->from('SSCM\CipeeBundle\Entity\EstadoAcademico', 'ea')
-                ->innerJoin('ea.ceduAlmn', 'a', 'ea.ceduAlmn = a.ceduAlmn')
-                ->innerJoin('ea.codiMalla', 'm', 'ea.codiMalla = m.codiMalla')
-                ->innerJoin('m.codiPfg', 'p', 'm.codiPfg = m.codiMalla')
+                ->from('SSCM\CipeeBundle\Entity\Alumno', 'a')
+                ->innerJoin('SSCM\CipeeBundle\Entity\EstadoAcademico', 'ea', 'WITH', 'a.ceduAlmn = ea.ceduAlmn')
+                ->innerJoin('SSCM\CipeeBundle\Entity\Malla', 'm', 'WITH', 'ea.codiMalla = m.codiMalla')
+                ->innerJoin('SSCM\CipeeBundle\Entity\Pfg', 'p', 'WITH', 'p.codiPfg = m.codiPfg')
                 ->where('m.codiPfg = ?1')
                 ->setParameter(1, $codiPfg);
 
         $query  = $qb->getQuery();
+
         $results = $query->execute();
 
         if ($results) {
 
-            return $results;
-
-
-
-            $dql    = $query->getDql();
             return array(
-                array('dql' => $dql),
-                array('entity' => $results)
+                'records' => $results,
+                'recordsTotal' => count($results)
             );
         }
 

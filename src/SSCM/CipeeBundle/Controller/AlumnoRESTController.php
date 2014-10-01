@@ -2,21 +2,20 @@
 
 namespace SSCM\CipeeBundle\Controller;
 
-use SSCM\CipeeBundle\Entity\Alumno;
-use SSCM\CipeeBundle\Form\AlumnoType;
-
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View as FOSView;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use SSCM\CipeeBundle\Entity\Alumno;
+use SSCM\CipeeBundle\Form\AlumnoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Voryx\RESTGeneratorBundle\Controller\VoryxController;
 
 /**
@@ -29,6 +28,7 @@ class AlumnoRESTController extends VoryxController
      * Get a Alumno entity
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @return Response
      *
@@ -41,6 +41,7 @@ class AlumnoRESTController extends VoryxController
      * Get all Alumno entities.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param ParamFetcherInterface $paramFetcher
      *
@@ -74,6 +75,7 @@ class AlumnoRESTController extends VoryxController
      * Create a Alumno entity.
      *
      * @View(statusCode=201, serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
      *
@@ -101,6 +103,7 @@ class AlumnoRESTController extends VoryxController
      * Update a Alumno entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
@@ -130,6 +133,7 @@ class AlumnoRESTController extends VoryxController
      * Partial Update to a Alumno entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
@@ -144,6 +148,7 @@ class AlumnoRESTController extends VoryxController
      * Delete a Alumno entity.
      *
      * @View(statusCode=204)
+     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity

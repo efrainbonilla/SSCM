@@ -20,6 +20,7 @@ _pfg:
 
 _malla:
     type: rest
+    parent: _pfg
     resource: "@CipeeBundle/Controller/MallaRESTController.php"
 
 _alumno:
