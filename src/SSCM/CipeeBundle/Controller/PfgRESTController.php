@@ -171,47 +171,6 @@ class PfgRESTController extends VoryxController
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-
-    /**
-     * Get all Pfg/Mallas entities.
-     *
-     * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
-     *
-     * @param $codiPfg
-     *
-     * @return Response
-     *
-     */
-    public function getMallas2Action($codiPfg)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $qb = $em->createQueryBuilder()
-                ->select(array('m.codiMalla AS codi_malla', 'm.nombMalla AS nomb_malla')  /*'m'*/)
-                ->from('SSCM\CipeeBundle\Entity\Malla', 'm')
-                ->innerJoin('m.codiPfg', 'p', 'm.codiPfg = p.codiPfg')
-                ->where('m.codiPfg = ?1')
-                ->setParameter(1, $codiPfg);
-
-        $query  = $qb->getQuery();
-        $results = $query->execute();
-
-        if ($results) {
-
-            return $results;
-
-
-
-            $dql    = $query->getDql();
-            return array(
-                array('dql' => $dql),
-                array('entity' => $results)
-            );
-        }
-
-        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
-    }
-
     /**
      * Get all Pfg/Alumnos entities.
      *
@@ -223,6 +182,77 @@ class PfgRESTController extends VoryxController
      * @return Response
      *
      */
+    /**
+     * Get all Pfg/Mallas entities.
+     *
+     * @View(serializerEnableMaxDepthChecks=true)
+     *
+     * @param $codiPfg
+     *
+     * @return Response
+     *
+     */
+    public function getUcAction($codiPfg)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder()
+                ->select(array('m.codiMalla AS codi_malla', 'm.nombMalla AS nomb_malla')  /*'m'*/)
+                ->from('SSCM\CipeeBundle\Entity\Malla', 'm')
+                ->innerJoin('SSCM\CipeeBundle\Entity\Pfg', 'p', 'WITH', 'm.codiPfg = p.codiPfg')
+                ->where('m.codiPfg = ?1')
+                ->setParameter(1, $codiPfg);
+
+        $query  = $qb->getQuery();
+        $results = $query->execute();
+
+        if ($results) {
+
+            return $results;
+
+            $dql    = $query->getDql();
+            return array(
+                array('dql' => $dql),
+                array('entity' => $results)
+            );
+        }
+
+        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
+    }
+    /**
+     * Get all Malla entities.
+     *
+     * @View(serializerEnableMaxDepthChecks=true)
+     *
+     * @param ParamFetcherInterface $paramFetcher
+     *
+     * @return Response
+     *
+     * @QueryParam(name="offset", requirements="\d+", nullable=true, description="Offset from which to start listing notes.")
+     * @QueryParam(name="limit", requirements="\d+", default="10", description="How many notes to return.")
+     * @QueryParam(name="order_by", nullable=true, array=true, description="Order by fields. Must be an array ie. &order_by[name]=ASC&order_by[description]=DESC")
+     * @QueryParam(name="filters", nullable=true, array=true, description="Filter by fields. Must be an array ie. &filters[id]=3")
+     */
+    public function getUcsAction(ParamFetcherInterface $paramFetcher, Pfg $codiPfg)
+    {
+        try {
+            $offset = $paramFetcher->get('offset');
+            $limit = $paramFetcher->get('limit');
+            $order_by = $paramFetcher->get('order_by');
+            $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
+
+            $filters['codiPfg'] = $codiPfg;
+
+            $em = $this->getDoctrine()->getManager();
+            $entities = $em->getRepository('CipeeBundle:Malla')->findBy($filters, $order_by, $limit, $offset);
+            if ($entities) {
+                return $entities;
+            }
+
+            return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
+        } catch (\Exception $e) {
+            return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
     public function getAlumnosAction($codiPfg)
     {
 
@@ -261,5 +291,4 @@ class PfgRESTController extends VoryxController
 
         return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
     }
-
 }

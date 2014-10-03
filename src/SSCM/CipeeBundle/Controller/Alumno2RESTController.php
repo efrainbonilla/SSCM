@@ -28,7 +28,6 @@ class Alumno2RESTController extends VoryxController
      * Get a Alumno entity
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @return Response
      *
@@ -46,7 +45,6 @@ class Alumno2RESTController extends VoryxController
      * Get all Alumno entities.
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param ParamFetcherInterface $paramFetcher
      *
@@ -90,7 +88,6 @@ class Alumno2RESTController extends VoryxController
      * Create a Alumno entity.
      *
      * @View(statusCode=201, serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param Request $request
      *
@@ -118,7 +115,6 @@ class Alumno2RESTController extends VoryxController
      * Update a Alumno entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
@@ -148,7 +144,6 @@ class Alumno2RESTController extends VoryxController
      * Partial Update to a Alumno entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
@@ -163,7 +158,6 @@ class Alumno2RESTController extends VoryxController
      * Delete a Alumno entity.
      *
      * @View(statusCode=204)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity

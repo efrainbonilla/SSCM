@@ -36,14 +36,24 @@ GET http://localhost/SSCM/web/app_dev.php/api/pfgs
 # Obtener pfg
 GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE
 
-
+# Enviar nuevo malla curricular
 POST http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas
 
 {
-	"codi_malla": "CODI-MALLA1",
-	"nomb_malla": "NOMB-MALLA1"
+	"codi_malla": "CODI-MALL",
+	"nomb_malla": "NOMB-MALLA",
+	"codi_pfg": "PFE"
 }
 
+# Actualizar malla curricular
+PUT http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/CODI-MALL
+
+{
+	"nomb_malla": "NOMB-MALLA0"
+}
+
+# Eliminar malla
+DELETE http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/CODI-MALL
 
 # Obtener coleccion de mallas de pfg
 GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas

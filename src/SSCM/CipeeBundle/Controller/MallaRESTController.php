@@ -11,6 +11,7 @@ use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View as FOSView;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use SSCM\CipeeBundle\Entity\Malla;
+use SSCM\CipeeBundle\Entity\Pfg;
 use SSCM\CipeeBundle\Form\MallaType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,23 +35,9 @@ class MallaRESTController extends VoryxController
      * @return Response
      *
      */
-    public function getAction($codiPfg, $codiMalla)
+    public function getAction($codiPfg, Malla $entity)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('CipeeBundle:Malla')
-            ->findBy(
-                array(
-                    'codiPfg' => $ceduAlmn,
-                    'codiMalla' => $codiMalla
-                )
-            );
-
-        if (entity) {
-            return $entity;
-        }
-
-        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
+        return $entity;
     }
     /**
      * Get all Malla entities.
@@ -123,6 +110,7 @@ class MallaRESTController extends VoryxController
      * @ApiDoc()
      *
      * @param Request $request
+     * @param $codiPfg
      * @param $entity
      *
      * @return Response
@@ -152,10 +140,11 @@ class MallaRESTController extends VoryxController
      * @View(serializerEnableMaxDepthChecks=true)
      *
      * @param Request $request
+     * @param $codiPfg
      * @param $entity
      *
      * @return Response
-*/
+    */
     public function patchAction(Request $request, $codiPfg, Malla $entity)
     {
         return $this->putAction($request, $codiPfg, $entity);
@@ -164,8 +153,10 @@ class MallaRESTController extends VoryxController
      * Delete a Malla entity.
      *
      * @View(statusCode=204)
+     * @ApiDoc()
      *
      * @param Request $request
+     * @param $codiPfg
      * @param $entity
      * @internal param $id
      *

@@ -3,16 +3,16 @@
 namespace SSCM\CipeeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
-use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Malla
  *
  * @ORM\Table(name="malla", indexes={@ORM\Index(name="codi_pfg", columns={"codi_pfg"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SSCM\CipeeBundle\Entity\MallaRepository")
  * @ExclusionPolicy("all")
  */
 class Malla
@@ -24,6 +24,13 @@ class Malla
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 10,
+     *     minMessage = "Código MALLA debe tener al menos {{ limit }} caracteres.",
+     *     maxMessage = "Código MALLA no puede tener mas de {{ limit }} caracteres."
+     * )
      */
     private $codiMalla;
 
@@ -32,6 +39,7 @@ class Malla
      *
      * @ORM\Column(name="nomb_malla", type="string", length=100, nullable=true)
      * @Expose
+     * @Assert\NotBlank()
      */
     private $nombMalla;
 
@@ -42,7 +50,7 @@ class Malla
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codi_pfg", referencedColumnName="codi_pfg")
      * })
-     * @Expose
+     * @Assert\NotBlank()
      * @SerializedName("pfg")
      */
     private $codiPfg;
@@ -53,9 +61,23 @@ class Malla
     }
 
     /**
+     * Set codiMalla
+     *
+     * @param string $codiMalla
+     *
+     * @return Malla
+     */
+    public function setCodiMalla($codiMalla)
+    {
+        $this->codiMalla = $codiMalla;
+
+        return $this;
+    }
+
+    /**
      * Get codiMalla
      *
-     * @return string 
+     * @return string
      */
     public function getCodiMalla()
     {
@@ -66,6 +88,7 @@ class Malla
      * Set nombMalla
      *
      * @param string $nombMalla
+     *
      * @return Malla
      */
     public function setNombMalla($nombMalla)
@@ -78,7 +101,7 @@ class Malla
     /**
      * Get nombMalla
      *
-     * @return string 
+     * @return string
      */
     public function getNombMalla()
     {
@@ -89,6 +112,7 @@ class Malla
      * Set codiPfg
      *
      * @param \SSCM\CipeeBundle\Entity\Pfg $codiPfg
+     *
      * @return Malla
      */
     public function setCodiPfg(\SSCM\CipeeBundle\Entity\Pfg $codiPfg = null)
@@ -101,7 +125,7 @@ class Malla
     /**
      * Get codiPfg
      *
-     * @return \SSCM\CipeeBundle\Entity\Pfg 
+     * @return \SSCM\CipeeBundle\Entity\Pfg
      */
     public function getCodiPfg()
     {

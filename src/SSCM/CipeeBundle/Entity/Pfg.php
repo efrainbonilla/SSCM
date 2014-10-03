@@ -2,6 +2,7 @@
 
 namespace SSCM\CipeeBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -9,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Pfg
  *
  * @ORM\Table(name="pfg")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SSCM\CipeeBundle\Entity\PfgRepository")
  */
 class Pfg
 {
@@ -27,7 +28,7 @@ class Pfg
      *     maxMessage = "Código PFG no puede tener mas de {{ limit }} caracteres."
      * )
      */
-    private $codiPfg = '';
+    private $codiPfg;
 
     /**
      * @var string
@@ -37,6 +38,18 @@ class Pfg
      */
     private $nombPfg;
 
+    /**
+     * @var Array
+     *
+     * @ORM\OneToMany(targetEntity="Malla", mappedBy="codiPfg")
+     */
+    protected $mallas;
+
+    public function __construct()
+    {
+        $this->mallas = new ArrayCollection();
+    }
+
     public function __toString()
     {
         return $this->getNombPfg()?: '-';
@@ -45,7 +58,7 @@ class Pfg
     /**
      * Get codiPfg
      *
-     * @return string 
+     * @return string
      */
     public function getCodiPfg()
     {
@@ -55,7 +68,9 @@ class Pfg
     /**
      * Set codiPfg
      *
-     * @return string 
+     * @param string $codiPfg
+     *
+     * @return Pfg
      */
     public function setCodiPfg($codiPfg)
     {
@@ -68,6 +83,7 @@ class Pfg
      * Set nombPfg
      *
      * @param string $nombPfg
+     *
      * @return Pfg
      */
     public function setNombPfg($nombPfg)
@@ -80,10 +96,46 @@ class Pfg
     /**
      * Get nombPfg
      *
-     * @return string 
+     * @return string
      */
     public function getNombPfg()
     {
         return $this->nombPfg;
+    }
+
+    /**
+     * Add mallas
+     *
+     * @param \SSCM\CipeeBundle\Entity\Malla $mallas [Data for add in ArrayCollection]
+     *
+     * @return Pfg
+     */
+    public function addMalla(\SSCM\CipeeBundle\Entity\Malla $mallas)
+    {
+        $this->mallas[] = $mallas;
+
+        return $this;
+    }
+
+    /**
+     * Remove mallas
+     *
+     * @param \SSCM\CipeeBundle\Entity\Malla $mallas [Data for removed of ArrayCollection]
+     *
+     * @return Null
+     */
+    public function removeMalla(\SSCM\CipeeBundle\Entity\Malla $mallas)
+    {
+        $this->mallas->removeElement($mallas);
+    }
+
+    /**
+     * Get mallas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMallas()
+    {
+        return $this->mallas;
     }
 }
