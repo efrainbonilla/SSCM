@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6deb1
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-07-2014 a las 15:35:26
--- Versión del servidor: 5.5.32-0ubuntu7
--- Versión de PHP: 5.5.3-1ubuntu2.5
+-- Tiempo de generación: 19-10-2014 a las 16:25:11
+-- Versión del servidor: 5.5.37-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `aldea` (
-  `codi_aldea` varchar(11) NOT NULL DEFAULT '',
+  `codi_aldea` varchar(11) NOT NULL,
   `nomb_aldea` varchar(100) DEFAULT NULL,
   `codi_parroq` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`codi_aldea`),
@@ -212,18 +212,18 @@ INSERT INTO `aldea` (`codi_aldea`, `nomb_aldea`, `codi_parroq`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `alumno` (
-  `cedu_alumno` varchar(11) NOT NULL DEFAULT '0',
-  `nomb_alumno` varchar(100) DEFAULT NULL,
-  `apell_alumno` varchar(100) DEFAULT NULL,
-  `telf_alumno` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`cedu_alumno`)
+  `cedu_almn` varchar(11) NOT NULL,
+  `nomb_almn` varchar(100) DEFAULT NULL,
+  `apell_almn` varchar(100) DEFAULT NULL,
+  `telf_almn` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`cedu_almn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `alumno`
 --
 
-INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno`) VALUES
+INSERT INTO `alumno` (`cedu_almn`, `nomb_almn`, `apell_almn`, `telf_almn`) VALUES
 ('10000392', 'ZORAIDA', 'PALMAR', '0416-0662243'),
 ('10016986', 'NORMA NIRIA', 'MONTIEL GONZALEZ', '0426-8236285'),
 ('10017376', 'ALEXANDER DE JESUS', 'GONZALEZ GONZALEZ', '4167637609'),
@@ -1014,7 +1014,7 @@ INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno
 ('14657797', 'MARTA MARIA', 'BRICEÑO RIVERO', '4146058075'),
 ('14657916', 'JIM HERWINSON', 'VILLALOBOS MACHADO', '4167602884'),
 ('14658407', 'AURA MAIGLE', 'LOZANO FLORIDO', '4140658405');
-INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno`) VALUES
+INSERT INTO `alumno` (`cedu_almn`, `nomb_almn`, `apell_almn`, `telf_almn`) VALUES
 ('14659815', 'ERIKA ROCIO', 'ROJAS PALMA', '4264624522'),
 ('14681474', 'ANA RAQUEL', 'ORTIZ ORTIZ', '2636925503'),
 ('14681557', 'LUCYVER DEL CARMEN', 'FERNANDEZ RAMIREZ', '4126884988'),
@@ -1794,7 +1794,7 @@ INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno
 ('18005299', 'JUAN', 'PINEDA ', '4161649675'),
 ('18006915', 'ROGELIO SEGUNDO', 'DOMINGUEZ LEZAMA ', '4265218766'),
 ('18007298', 'MAYNIESKA', 'CARRASQUERO ARRIETA', '2614236779');
-INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno`) VALUES
+INSERT INTO `alumno` (`cedu_almn`, `nomb_almn`, `apell_almn`, `telf_almn`) VALUES
 ('18007496', 'ALEXIS ANTONIO ', 'MEDINA BELTRAN ', '4263627851'),
 ('18008230', 'KELVIN MELVIN ', 'PALMAR REVEROL ', '4267223206'),
 ('18008506', 'GLORIA MARIA', 'PAZ', '0416-5653326'),
@@ -2578,7 +2578,7 @@ INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno
 ('20531807', 'DIANA CAROLINA', 'TORRES SALAS', '4143752925'),
 ('20531893', 'HUGO', 'LIZCANO CASTELLANO', '4268018332'),
 ('20531954', 'MARIA MILAGRO', 'VILLASMIL MATERANO', '02755551047  04147247219');
-INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno`) VALUES
+INSERT INTO `alumno` (`cedu_almn`, `nomb_almn`, `apell_almn`, `telf_almn`) VALUES
 ('20532048', 'DENESIS KARINA', 'AMARIS POLANCO', '4161609353'),
 ('20532056', 'ORIELIS MARIA ', 'GOZNALEZ GONZALEZ ', '4262757666'),
 ('20532113', 'OSMEILY CARINA', 'FERREBUT PINO', '4247739937'),
@@ -3372,7 +3372,7 @@ INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno
 ('7774657', 'EYDA CASILDA', 'BRICEÑO MENDOZA ', '2634511809'),
 ('7777679', 'JORGE LUIS', 'URDANETA BADELL', '4161677900'),
 ('7777784', 'HENRY JOSE ', 'FUENMAYOR JIMENEZ ', '4247668009');
-INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno`) VALUES
+INSERT INTO `alumno` (`cedu_almn`, `nomb_almn`, `apell_almn`, `telf_almn`) VALUES
 ('7777809', 'YELITZA TERESA', 'VIVAS OVALLES', '4247180480'),
 ('7778335', 'DANILA YANEY', 'SOTO DE ECHETO', '4163631193'),
 ('7778340', 'HEBER DE JESUS', 'FRANCO', '4265668897'),
@@ -3505,6 +3505,7 @@ INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno
 ('83448204', 'PEDRO LUIS', 'GERONIMO HOYOS', '4166679302'),
 ('83480456', 'JANETH DEL CARMEN', 'BRITO TIRADO', '4161672736'),
 ('83490136', 'CARMELO JULIO', 'BALLESTEROS PEREZ', '4247565590'),
+('8355972', 'efrain', 'bonilla', '04164343443'),
 ('83660553', 'ORNEY JOSE', 'CARDEÑO ROJAS', '4164983770'),
 ('8411451', 'CHIQUINQUIRA', 'NEGRON GONZALEZ', '2642614287'),
 ('84429895', 'NAIROVIS', 'FUENTES VILLAREAL', '4266692355'),
@@ -3619,9 +3620,9 @@ INSERT INTO `alumno` (`cedu_alumno`, `nomb_alumno`, `apell_alumno`, `telf_alumno
 --
 
 CREATE TABLE IF NOT EXISTS `eje` (
-  `codi_eje` varchar(11) NOT NULL DEFAULT '',
+  `codi_eje` varchar(11) NOT NULL,
   `nomb_eje` varchar(100) DEFAULT NULL,
-  `codi_edo` varchar(11) NOT NULL DEFAULT '',
+  `codi_edo` varchar(11) NOT NULL,
   PRIMARY KEY (`codi_eje`,`codi_edo`),
   KEY `codi_edo` (`codi_edo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -3648,7 +3649,7 @@ INSERT INTO `eje` (`codi_eje`, `nomb_eje`, `codi_edo`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `estado` (
-  `codi_edo` varchar(11) NOT NULL DEFAULT '',
+  `codi_edo` varchar(11) NOT NULL,
   `nomb_edo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`codi_edo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -3669,21 +3670,21 @@ INSERT INTO `estado` (`codi_edo`, `nomb_edo`) VALUES
 
 CREATE TABLE IF NOT EXISTS `estado_academico` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cedu_alumno` varchar(11) DEFAULT NULL,
+  `cedu_almn` varchar(11) DEFAULT NULL,
   `codi_malla` varchar(11) DEFAULT NULL,
   `codi_aldea` varchar(11) DEFAULT NULL,
   `estatus` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `codi_malla` (`codi_malla`,`codi_aldea`),
-  KEY `cedu_alumno` (`cedu_alumno`),
+  KEY `cedu_alumno` (`cedu_almn`),
   KEY `codi_aldea` (`codi_aldea`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3611 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3384 ;
 
 --
 -- Volcado de datos para la tabla `estado_academico`
 --
 
-INSERT INTO `estado_academico` (`id`, `cedu_alumno`, `codi_malla`, `codi_aldea`, `estatus`) VALUES
+INSERT INTO `estado_academico` (`id`, `cedu_almn`, `codi_malla`, `codi_aldea`, `estatus`) VALUES
 (1, '10000392', 'GSO-DIA', '231504-1', 1),
 (2, '10016986', 'PFE-SM', '231504-1', 1),
 (3, '10017376', 'PFE-EF', '231504-1', 1),
@@ -4858,7 +4859,7 @@ INSERT INTO `estado_academico` (`id`, `cedu_alumno`, `codi_malla`, `codi_aldea`,
 (1172, '16420775', 'EJR-DIA', '231704-3', 1),
 (1173, '16426917', 'GAM-DIA', '231701-3', 1),
 (1174, '16427326', 'PFE-SM', '231701-4', 1);
-INSERT INTO `estado_academico` (`id`, `cedu_alumno`, `codi_malla`, `codi_aldea`, `estatus`) VALUES
+INSERT INTO `estado_academico` (`id`, `cedu_almn`, `codi_malla`, `codi_aldea`, `estatus`) VALUES
 (1175, '16427689', 'PFE-EE', '230101-1', 1),
 (1176, '16427690', 'PFE-SM', '231504-1', 1),
 (1177, '16427814', 'PFE-EI', '231701-3', 1),
@@ -6012,7 +6013,7 @@ INSERT INTO `estado_academico` (`id`, `cedu_alumno`, `codi_malla`, `codi_aldea`,
 (2325, '20529071', 'EJR-DIA', '230401-1', 1),
 (2326, '20529072', 'PFE-SM', '230503-2', 1),
 (2327, '20529156', 'PFE-EI', '230503-2', 1);
-INSERT INTO `estado_academico` (`id`, `cedu_alumno`, `codi_malla`, `codi_aldea`, `estatus`) VALUES
+INSERT INTO `estado_academico` (`id`, `cedu_almn`, `codi_malla`, `codi_aldea`, `estatus`) VALUES
 (2328, '20529243', 'EJR-DIA', '230603-2', 1),
 (2329, '20529606', 'PFE-SM', '230503-2', 1),
 (2330, '20529693', 'PFE-SM', '230603-2', 1),
@@ -7073,12 +7074,99 @@ INSERT INTO `estado_academico` (`id`, `cedu_alumno`, `codi_malla`, `codi_aldea`,
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `fos_user_group`
+--
+
+CREATE TABLE IF NOT EXISTS `fos_user_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_583D1F3E5E237E06` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fos_user_user`
+--
+
+CREATE TABLE IF NOT EXISTS `fos_user_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `username_canonical` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email_canonical` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `expired` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  `confirmation_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
+  `credentials_expired` tinyint(1) NOT NULL,
+  `credentials_expire_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `date_of_birth` datetime DEFAULT NULL,
+  `firstname` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastname` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `website` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `biography` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locale` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `timezone` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook_uid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `facebook_data` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:json)',
+  `twitter_uid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twitter_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twitter_data` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:json)',
+  `gplus_uid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gplus_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gplus_data` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:json)',
+  `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `two_step_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_C560D76192FC23A8` (`username_canonical`),
+  UNIQUE KEY `UNIQ_C560D761A0D96FBF` (`email_canonical`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `fos_user_user`
+--
+
+INSERT INTO `fos_user_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `created_at`, `updated_at`, `date_of_birth`, `firstname`, `lastname`, `website`, `biography`, `gender`, `locale`, `timezone`, `phone`, `facebook_uid`, `facebook_name`, `facebook_data`, `twitter_uid`, `twitter_name`, `twitter_data`, `gplus_uid`, `gplus_name`, `gplus_data`, `token`, `two_step_code`) VALUES
+(1, 'admin', 'admin', 'ssubvzulia@gmail.com', 'ssubvzulia@gmail.com', 1, 'kilmqlukdbksgccwoc4gcskc84g0ggw', 'jfcr8Pozx/8DZER0yWhVkwszNQVVTkiAVlhWjREw3GlC00+FVJAoAhAB6MFWK9hMse9M21ooxmGWe+6QU2BaPw==', '2014-10-07 16:15:12', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL, '2014-07-06 02:42:23', '2014-10-07 16:15:12', NULL, NULL, NULL, NULL, NULL, 'u', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL),
+(2, '8355972', '8355972', 'efrainbonilla.dev@gmail.com', 'efrainbonilla.dev@gmail.com', 1, '4mgnu0wz5caosc0cg04c8so4k00044w', 'XxPk63wZdu5n5GL5kddrbGgKyr3s+jyds1Zjry2vAGcuT1IA28ekbLHvXY+xRNwFHYfJxK/rL88eMBceB4N/Sg==', '2014-10-05 13:27:44', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 0, NULL, '2014-10-05 13:19:46', '2014-10-05 13:27:44', NULL, NULL, NULL, NULL, NULL, 'm', NULL, NULL, NULL, NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL, 'null', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fos_user_user_group`
+--
+
+CREATE TABLE IF NOT EXISTS `fos_user_user_group` (
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`group_id`),
+  KEY `IDX_B3C77447A76ED395` (`user_id`),
+  KEY `IDX_B3C77447FE54D947` (`group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `malla`
 --
 
 CREATE TABLE IF NOT EXISTS `malla` (
   `codi_pfg` varchar(11) DEFAULT NULL,
-  `codi_malla` varchar(11) NOT NULL DEFAULT '',
+  `codi_malla` varchar(11) NOT NULL,
   `nomb_malla` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`codi_malla`),
   KEY `codi_pfg` (`codi_pfg`)
@@ -7113,7 +7201,7 @@ INSERT INTO `malla` (`codi_pfg`, `codi_malla`, `nomb_malla`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `municipio` (
-  `codi_muni` varchar(11) NOT NULL DEFAULT '',
+  `codi_muni` varchar(11) NOT NULL,
   `nomb_muni` varchar(100) DEFAULT NULL,
   `codi_edo` varchar(11) DEFAULT NULL,
   `codi_eje` varchar(11) DEFAULT NULL,
@@ -7175,7 +7263,7 @@ INSERT INTO `municipio` (`codi_muni`, `nomb_muni`, `codi_edo`, `codi_eje`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `parroquia` (
-  `codi_parroq` varchar(11) NOT NULL DEFAULT '',
+  `codi_parroq` varchar(11) NOT NULL,
   `nomb_parroq` varchar(100) DEFAULT NULL,
   `codi_muni` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`codi_parroq`),
@@ -7394,7 +7482,7 @@ INSERT INTO `parroquia` (`codi_parroq`, `nomb_parroq`, `codi_muni`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `pfg` (
-  `codi_pfg` varchar(11) NOT NULL DEFAULT '',
+  `codi_pfg` varchar(11) NOT NULL,
   `nomb_pfg` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`codi_pfg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -7413,7 +7501,7 @@ INSERT INTO `pfg` (`codi_pfg`, `nomb_pfg`) VALUES
 ('GAS', 'GAS '),
 ('GSO', 'GESTION SOCIAL DEL DESARROLLO LOCAL '),
 ('GSP', 'GESTION DE SALUD PUBLICA '),
-('INF', 'INFORMATICA PARA LA GESTION SOCIAL '),
+('INF', 'INFORMATICA PARA LA GESTION SOCIAL'),
 ('PFE', 'EDUCACION'),
 ('REF', 'REFINACION Y PETROQUIMICA ');
 
@@ -7425,39 +7513,46 @@ INSERT INTO `pfg` (`codi_pfg`, `nomb_pfg`) VALUES
 -- Filtros para la tabla `aldea`
 --
 ALTER TABLE `aldea`
-  ADD CONSTRAINT `aldea_ibfk_1` FOREIGN KEY (`codi_parroq`) REFERENCES `parroquia` (`codi_parroq`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_7E614C8B65BF5D99` FOREIGN KEY (`codi_parroq`) REFERENCES `parroquia` (`codi_parroq`);
 
 --
 -- Filtros para la tabla `eje`
 --
 ALTER TABLE `eje`
-  ADD CONSTRAINT `eje_ibfk_1` FOREIGN KEY (`codi_edo`) REFERENCES `estado` (`codi_edo`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_1397C6234011D818` FOREIGN KEY (`codi_edo`) REFERENCES `estado` (`codi_edo`);
 
 --
 -- Filtros para la tabla `estado_academico`
 --
 ALTER TABLE `estado_academico`
-  ADD CONSTRAINT `estado_academico_ibfk_1` FOREIGN KEY (`codi_malla`) REFERENCES `malla` (`codi_malla`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `estado_academico_ibfk_2` FOREIGN KEY (`cedu_alumno`) REFERENCES `alumno` (`cedu_alumno`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `estado_academico_ibfk_3` FOREIGN KEY (`codi_aldea`) REFERENCES `aldea` (`codi_aldea`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `estado_academico_ibfk_1` FOREIGN KEY (`cedu_almn`) REFERENCES `alumno` (`cedu_almn`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `FK_DFDE279B55943FB3` FOREIGN KEY (`codi_aldea`) REFERENCES `aldea` (`codi_aldea`),
+  ADD CONSTRAINT `FK_DFDE279BBDDFE09E` FOREIGN KEY (`codi_malla`) REFERENCES `malla` (`codi_malla`);
+
+--
+-- Filtros para la tabla `fos_user_user_group`
+--
+ALTER TABLE `fos_user_user_group`
+  ADD CONSTRAINT `FK_B3C77447A76ED395` FOREIGN KEY (`user_id`) REFERENCES `fos_user_user` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_B3C77447FE54D947` FOREIGN KEY (`group_id`) REFERENCES `fos_user_group` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `malla`
 --
 ALTER TABLE `malla`
-  ADD CONSTRAINT `malla_ibfk_1` FOREIGN KEY (`codi_pfg`) REFERENCES `pfg` (`codi_pfg`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `malla_ibfk_1` FOREIGN KEY (`codi_pfg`) REFERENCES `pfg` (`codi_pfg`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `municipio`
 --
 ALTER TABLE `municipio`
-  ADD CONSTRAINT `municipio_ibfk_1` FOREIGN KEY (`codi_edo`) REFERENCES `estado` (`codi_edo`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_FE98F5E04011D818` FOREIGN KEY (`codi_edo`) REFERENCES `estado` (`codi_edo`);
 
 --
 -- Filtros para la tabla `parroquia`
 --
 ALTER TABLE `parroquia`
-  ADD CONSTRAINT `parroquia_ibfk_1` FOREIGN KEY (`codi_muni`) REFERENCES `municipio` (`codi_muni`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_23A71668340B6F16` FOREIGN KEY (`codi_muni`) REFERENCES `municipio` (`codi_muni`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

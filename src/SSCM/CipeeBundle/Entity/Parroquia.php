@@ -3,12 +3,16 @@
 namespace SSCM\CipeeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Parroquia
  *
  * @ORM\Table(name="parroquia", indexes={@ORM\Index(name="codi_muni", columns={"codi_muni"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SSCM\CipeeBundle\Entity\ParroquiaRepository")
+ * @ExclusionPolicy("all")
  */
 class Parroquia
 {
@@ -17,14 +21,16 @@ class Parroquia
      *
      * @ORM\Column(name="codi_parroq", type="string", length=11, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @Expose
      */
-    private $codiParroq = '0';
+    private $codiParroq;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nomb_parroq", type="string", length=100, nullable=true)
+     * @Expose
      */
     private $nombParroq;
 
@@ -35,18 +41,28 @@ class Parroquia
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codi_muni", referencedColumnName="codi_muni")
      * })
+     * @Expose
+     * @SerializedName("municipio")
      */
     private $codiMuni;
 
-    public function __toString()
+    /**
+     * Set codiParroq
+     *
+     * @param  string    $codiParroq
+     * @return Parroquia
+     */
+    public function setCodiParroq($codiParroq)
     {
-        return $this->getNombParroq()?: '-';
+        $this->codiParroq = $codiParroq;
+
+        return $this;
     }
 
     /**
      * Get codiParroq
      *
-     * @return string 
+     * @return string
      */
     public function getCodiParroq()
     {
@@ -56,7 +72,7 @@ class Parroquia
     /**
      * Set nombParroq
      *
-     * @param string $nombParroq
+     * @param  string    $nombParroq
      * @return Parroquia
      */
     public function setNombParroq($nombParroq)
@@ -69,7 +85,7 @@ class Parroquia
     /**
      * Get nombParroq
      *
-     * @return string 
+     * @return string
      */
     public function getNombParroq()
     {
@@ -79,7 +95,7 @@ class Parroquia
     /**
      * Set codiMuni
      *
-     * @param \SSCM\CipeeBundle\Entity\Municipio $codiMuni
+     * @param  \SSCM\CipeeBundle\Entity\Municipio $codiMuni
      * @return Parroquia
      */
     public function setCodiMuni(\SSCM\CipeeBundle\Entity\Municipio $codiMuni = null)
@@ -92,10 +108,15 @@ class Parroquia
     /**
      * Get codiMuni
      *
-     * @return \SSCM\CipeeBundle\Entity\Municipio 
+     * @return \SSCM\CipeeBundle\Entity\Municipio
      */
     public function getCodiMuni()
     {
         return $this->codiMuni;
+    }
+
+    public function __toString()
+    {
+        return $this->getNombParroq()?: '-';
     }
 }

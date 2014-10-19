@@ -13,7 +13,6 @@ use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use SSCM\CipeeBundle\Entity\Malla;
 use SSCM\CipeeBundle\Entity\Pfg;
 use SSCM\CipeeBundle\Form\MallaType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -173,5 +172,29 @@ class MallaRESTController extends VoryxController
         } catch (\Exception $e) {
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+    /**
+     * Get all PFG/Malla/Alumnos entities.
+     *
+     * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
+     *
+     * @param $codiPfg
+     * @param $codiMalla
+     *
+     * @return Response
+     */
+    public function getAlumnosAction($codiPfg, $codiMalla)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $results = $em->getRepository('CipeeBundle:Malla')
+                      ->findByAlmn($codiPfg, $codiMalla);
+
+        if ($results) {
+            return array('recordsTotal' => count($results), 'records' => $results);
+        }
+
+        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
     }
 }

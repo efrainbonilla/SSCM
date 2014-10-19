@@ -12,7 +12,6 @@ use FOS\RestBundle\View\View as FOSView;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use SSCM\CipeeBundle\Entity\Pfg;
 use SSCM\CipeeBundle\Form\PfgType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -182,38 +181,15 @@ class PfgRESTController extends VoryxController
      * @return Response
      *
      */
-    /**
-     * Get all Pfg/Mallas entities.
-     *
-     * @View(serializerEnableMaxDepthChecks=true)
-     *
-     * @param $codiPfg
-     *
-     * @return Response
-     *
-     */
-    public function getUcAction($codiPfg)
+    public function getAlumnosAction($codiPfg)
     {
         $em = $this->getDoctrine()->getManager();
-        $qb = $em->createQueryBuilder()
-                ->select(array('m.codiMalla AS codi_malla', 'm.nombMalla AS nomb_malla')  /*'m'*/)
-                ->from('SSCM\CipeeBundle\Entity\Malla', 'm')
-                ->innerJoin('SSCM\CipeeBundle\Entity\Pfg', 'p', 'WITH', 'm.codiPfg = p.codiPfg')
-                ->where('m.codiPfg = ?1')
-                ->setParameter(1, $codiPfg);
 
-        $query  = $qb->getQuery();
-        $results = $query->execute();
+        $results = $em->getRepository('CipeeBundle:Pfg')
+                      ->findByAlmn($codiPfg);
 
         if ($results) {
-
-            return $results;
-
-            $dql    = $query->getDql();
-            return array(
-                array('dql' => $dql),
-                array('entity' => $results)
-            );
+            return array('records' => $results, 'recordsTotal' => count($results));
         }
 
         return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
@@ -222,6 +198,7 @@ class PfgRESTController extends VoryxController
      * Get all Malla entities.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param ParamFetcherInterface $paramFetcher
      *
@@ -252,43 +229,5 @@ class PfgRESTController extends VoryxController
         } catch (\Exception $e) {
             return FOSView::create($e->getMessage(), Codes::HTTP_INTERNAL_SERVER_ERROR);
         }
-    }
-    public function getAlumnosAction($codiPfg)
-    {
-
-        /*SELECT a.* FROM alumno a
-        INNER JOIN estado_academico ea ON(a.cedu_almn=ea.cedu_almn)
-        INNER JOIN malla m ON(m.codi_malla=ea.codi_malla)
-        INNER JOIN pfg p ON(p.codi_pfg=m.codi_pfg)*/
-
-        /*SELECT a FROM SSCM\CipeeBundle\Entity\Alumno a
-        INNER JOIN SSCM\CipeeBundle\Entity\EstadoAcademico ea WITH a.ceduAlmn = ea.ceduAlmn
-        INNER JOIN SSCM\CipeeBundle\Entity\Malla m WITH ea.codiMalla = m.codiMalla
-        INNER JOIN SSCM\CipeeBundle\Entity\Pfg p WITH p.codiPfg = m.codiPfg
-        WHERE m.codiPfg = ?1*/
-
-        $em = $this->getDoctrine()->getManager();
-        $qb = $em->createQueryBuilder()
-                ->select('a')
-                ->from('SSCM\CipeeBundle\Entity\Alumno', 'a')
-                ->innerJoin('SSCM\CipeeBundle\Entity\EstadoAcademico', 'ea', 'WITH', 'a.ceduAlmn = ea.ceduAlmn')
-                ->innerJoin('SSCM\CipeeBundle\Entity\Malla', 'm', 'WITH', 'ea.codiMalla = m.codiMalla')
-                ->innerJoin('SSCM\CipeeBundle\Entity\Pfg', 'p', 'WITH', 'p.codiPfg = m.codiPfg')
-                ->where('m.codiPfg = ?1')
-                ->setParameter(1, $codiPfg);
-
-        $query  = $qb->getQuery();
-
-        $results = $query->execute();
-
-        if ($results) {
-
-            return array(
-                'records' => $results,
-                'recordsTotal' => count($results)
-            );
-        }
-
-        return FOSView::create('Not Found', Codes::HTTP_NO_CONTENT);
     }
 }

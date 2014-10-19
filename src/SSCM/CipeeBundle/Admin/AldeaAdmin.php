@@ -29,7 +29,7 @@ class AldeaAdmin extends Admin
         $listMapper
             ->add('codiAldea', 'text')
             ->add('nombAldea')
-            ->add('parroq', null)
+            ->add('codiParroq', null)
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -48,7 +48,7 @@ class AldeaAdmin extends Admin
         $formMapper
             ->add('codiAldea')
             ->add('nombAldea')
-            ->add('parroq', null)
+            ->add('codiParroq', null)
         ;
     }
 
@@ -60,7 +60,7 @@ class AldeaAdmin extends Admin
         $showMapper
             ->add('codiAldea')
             ->add('nombAldea')
-            ->add('parroq', null)
+            ->add('codiParroq', null)
         ;
     }
 }

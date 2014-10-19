@@ -1,11 +1,32 @@
+# Crear nuevo alumno
+POST http://localhost/SSCM/web/app_dev.php/api/alumnos
+
+{
+	"cedu_almn": "8355972",
+	"nomb_almn": "Efrainn",
+	"apell_almn": "Bonilla",
+	"telf_almn": "04165853359"
+}
+
+# Actualizar alumno
+PUT http://localhost/SSCM/web/app_dev.php/api/alumnos/8355972
+
+{
+	"nomb_almn": "Efrain"
+}
+
+# Eliminar alumno
+DELETE http://localhost/SSCM/web/app_dev.php/api/alumnos/8355972
+
+# Obtener alumno
+GET http://localhost/SSCM/web/app_dev.php/api/alumnos/8355972
 
 # Obtener coleccion alumnos
 GET http://localhost/SSCM/web/app_dev.php/api/alumnos
 
-# Obtener estudiante
-GET http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326
+######
 
-# Obtener coleccion estado academico de estudiante
+# Obtener coleccion estado academico de alumno
 GET http://localhost/SSCM/web/app_dev.php/api/alumnos/10088326/estadoacademicos
 
 # Obtener estado academico de estudiante
@@ -29,6 +50,8 @@ PUT http://localhost/SSCM/web/app_dev.php/api/pfgs/NEWSS
 
 # Eliminar pfg
 DELETE http://localhost/SSCM/web/app_dev.php/api/pfgs/NEW
+
+######
 
 # Obtener coleccion de pfgs
 GET http://localhost/SSCM/web/app_dev.php/api/pfgs
@@ -63,3 +86,10 @@ GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/PFE-EF
 
 # Obtener alumnos de pfg
 GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/alumnos
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/CSO/alumnos
+
+# Obtener alumnos en malla curricular de pfg
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/PFE-EF/alumnos
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/PFE-EI/alumnos
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/PFE-SM/alumnos
+GET http://localhost/SSCM/web/app_dev.php/api/pfgs/PFE/mallas/PFE-EE/alumnos

@@ -10,18 +10,18 @@ class EstadoAcademicoType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('estatus')
-            ->add('cecuAlmn')
+            ->add('ceduAlmn')
             ->add('codiMalla')
             ->add('codiAldea')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

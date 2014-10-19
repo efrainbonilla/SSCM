@@ -25,9 +25,9 @@ _malla:
 
 _alumno:
     type: rest
-    resource: "@CipeeBundle/Controller/Alumno2RESTController.php"
+    resource: "@CipeeBundle/Controller/AlumnoRESTController.php"
 
 _estadoacademico:
     type: rest
     parent:   _alumno
-    resource: "@CipeeBundle/Controller/EstadoAcademico2RESTController.php"
+    resource: "@CipeeBundle/Controller/EstadoAcademicoRESTController.php"

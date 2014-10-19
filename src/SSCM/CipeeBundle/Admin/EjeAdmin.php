@@ -13,7 +13,7 @@ class EjeAdmin extends Admin
     protected $datagridValues = array(
         '_page'       => 1,
         '_per_page'   => 25,
-        '_sort_by' => 'edo.nombEdo',
+        '_sort_by' => 'codiEdo.nombEdo',
         '_sort_order' => 'ASC'
     );
     /**
@@ -23,7 +23,7 @@ class EjeAdmin extends Admin
     {
         $datagridMapper
             ->add('nombEje')
-            ->add('edo', null, array(
+            ->add('codiEdo', null, array(
                 'label' => 'list.label_nomb_edo'
             ))
         ;
@@ -36,7 +36,7 @@ class EjeAdmin extends Admin
     {
         $listMapper
             ->add('nombEje')
-            ->add('edo.nombEdo', null, array(
+            ->add('codiEdo.nombEdo', null, array(
                 'label' => 'list.label_nomb_edo'
             ))
             ->add('_action', 'actions', array(
@@ -57,7 +57,7 @@ class EjeAdmin extends Admin
         $formMapper
             ->add('codiEje')
             ->add('nombEje')
-            ->add('edo', null, array(
+            ->add('codiEdo', null, array(
                 'label' => 'list.label_nomb_edo'
             ))
         ;
@@ -71,7 +71,7 @@ class EjeAdmin extends Admin
         $showMapper
             ->add('codiEje')
             ->add('nombEje')
-            ->add('edo.nombEdo', null, array(
+            ->add('codiEdo.nombEdo', null, array(
                 'label' => 'list.label_nomb_edo'
             ))
         ;

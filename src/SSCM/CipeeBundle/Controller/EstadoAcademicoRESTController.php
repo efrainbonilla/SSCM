@@ -2,21 +2,19 @@
 
 namespace SSCM\CipeeBundle\Controller;
 
-use SSCM\CipeeBundle\Entity\EstadoAcademico;
-use SSCM\CipeeBundle\Form\EstadoAcademicoType;
-
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Request\ParamFetcherInterface;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View as FOSView;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+use SSCM\CipeeBundle\Entity\EstadoAcademico;
+use SSCM\CipeeBundle\Form\EstadoAcademicoType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 use Voryx\RESTGeneratorBundle\Controller\VoryxController;
 
 /**
@@ -29,11 +27,12 @@ class EstadoAcademicoRESTController extends VoryxController
      * Get a EstadoAcademico entity
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @return Response
      *
      */
-    public function getAction(EstadoAcademico $entity)
+    public function getAction($ceduAlmn, EstadoAcademico $entity)
     {
         return $entity;
     }
@@ -41,6 +40,7 @@ class EstadoAcademicoRESTController extends VoryxController
      * Get all EstadoAcademico entities.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param ParamFetcherInterface $paramFetcher
      *
@@ -51,13 +51,15 @@ class EstadoAcademicoRESTController extends VoryxController
      * @QueryParam(name="order_by", nullable=true, array=true, description="Order by fields. Must be an array ie. &order_by[name]=ASC&order_by[description]=DESC")
      * @QueryParam(name="filters", nullable=true, array=true, description="Filter by fields. Must be an array ie. &filters[id]=3")
      */
-    public function cgetAction(ParamFetcherInterface $paramFetcher)
+    public function cgetAction(ParamFetcherInterface $paramFetcher, $ceduAlmn)
     {
         try {
             $offset = $paramFetcher->get('offset');
             $limit = $paramFetcher->get('limit');
             $order_by = $paramFetcher->get('order_by');
             $filters = !is_null($paramFetcher->get('filters')) ? $paramFetcher->get('filters') : array();
+
+            $filters['ceduAlmn'] = $ceduAlmn;
 
             $em = $this->getDoctrine()->getManager();
             $entities = $em->getRepository('CipeeBundle:EstadoAcademico')->findBy($filters, $order_by, $limit, $offset);
@@ -74,13 +76,14 @@ class EstadoAcademicoRESTController extends VoryxController
      * Create a EstadoAcademico entity.
      *
      * @View(statusCode=201, serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
      *
      * @return Response
      *
      */
-    public function postAction(Request $request)
+    public function postAction(Request $request, $ceduAlmn)
     {
         $entity = new EstadoAcademico();
         $form = $this->createForm(new EstadoAcademicoType(), $entity, array("method" => $request->getMethod()));
@@ -101,13 +104,14 @@ class EstadoAcademicoRESTController extends VoryxController
      * Update a EstadoAcademico entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
+     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
      *
      * @return Response
      */
-    public function putAction(Request $request, EstadoAcademico $entity)
+    public function putAction(Request $request, $ceduAlmn, EstadoAcademico $entity)
     {
         try {
             $em = $this->getDoctrine()->getManager();
@@ -136,9 +140,9 @@ class EstadoAcademicoRESTController extends VoryxController
      *
      * @return Response
 */
-    public function patchAction(Request $request, EstadoAcademico $entity)
+    public function patchAction(Request $request, $ceduAlmn, EstadoAcademico $entity)
     {
-        return $this->putAction($request, $entity);
+        return $this->putAction($request, $ceduAlmn, $entity);
     }
     /**
      * Delete a EstadoAcademico entity.
@@ -151,7 +155,7 @@ class EstadoAcademicoRESTController extends VoryxController
      *
      * @return Response
      */
-    public function deleteAction(Request $request, EstadoAcademico $entity)
+    public function deleteAction(Request $request, $ceduAlmn, EstadoAcademico $entity)
     {
         try {
             $em = $this->getDoctrine()->getManager();

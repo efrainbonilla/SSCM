@@ -3,12 +3,17 @@
 namespace SSCM\CipeeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\SerializedName;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * EstadoAcademico
  *
  * @ORM\Table(name="estado_academico", indexes={@ORM\Index(name="codi_malla", columns={"codi_malla", "codi_aldea"}), @ORM\Index(name="cedu_almn", columns={"cedu_almn"}), @ORM\Index(name="codi_aldea", columns={"codi_aldea"}), @ORM\Index(name="IDX_DFDE279BBDDFE09E", columns={"codi_malla"})})
  * @ORM\Entity
+ * @ExclusionPolicy("all")
  */
 class EstadoAcademico
 {
@@ -28,6 +33,8 @@ class EstadoAcademico
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="cedu_almn", referencedColumnName="cedu_almn")
      * })
+     * @Expose
+     * @Assert\NotBlank()
      */
     private $ceduAlmn;
 
@@ -38,9 +45,11 @@ class EstadoAcademico
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codi_malla", referencedColumnName="codi_malla")
      * })
+     * @Expose
+     * @SerializedName("malla")
+     * @Assert\NotBlank()
      */
     private $codiMalla;
-
 
     /**
      * @var \Aldea
@@ -49,6 +58,9 @@ class EstadoAcademico
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codi_aldea", referencedColumnName="codi_aldea")
      * })
+     * @Expose
+     * @SerializedName("aldea")
+     * @Assert\NotBlank()
      */
     private $codiAldea;
 
@@ -56,6 +68,8 @@ class EstadoAcademico
      * @var integer
      *
      * @ORM\Column(name="estatus", type="integer", nullable=true)
+     * @Expose
+     * @Assert\NotBlank()
      */
     private $estatus;
 
@@ -72,7 +86,7 @@ class EstadoAcademico
     /**
      * Set estatus
      *
-     * @param integer $estatus
+     * @param  integer         $estatus
      * @return EstadoAcademico
      */
     public function setEstatus($estatus)
@@ -95,7 +109,7 @@ class EstadoAcademico
     /**
      * Set codiMalla
      *
-     * @param \SSCM\CipeeBundle\Entity\Malla $codiMalla
+     * @param  \SSCM\CipeeBundle\Entity\Malla $codiMalla
      * @return EstadoAcademico
      */
     public function setCodiMalla(\SSCM\CipeeBundle\Entity\Malla $codiMalla = null)
@@ -118,7 +132,7 @@ class EstadoAcademico
     /**
      * Set ceduAlmn
      *
-     * @param \SSCM\CipeeBundle\Entity\Alumno $ceduAlmn
+     * @param  \SSCM\CipeeBundle\Entity\Alumno $ceduAlmn
      * @return EstadoAcademico
      */
     public function setCeduAlmn(\SSCM\CipeeBundle\Entity\Alumno $ceduAlmn = null)
@@ -141,7 +155,7 @@ class EstadoAcademico
     /**
      * Set codiAldea
      *
-     * @param \SSCM\CipeeBundle\Entity\Aldea $codiAldea
+     * @param  \SSCM\CipeeBundle\Entity\Aldea $codiAldea
      * @return EstadoAcademico
      */
     public function setCodiAldea(\SSCM\CipeeBundle\Entity\Aldea $codiAldea = null)

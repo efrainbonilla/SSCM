@@ -18,7 +18,9 @@ class MallaAdmin extends Admin
         $datagridMapper
             ->add('codiMalla')
             ->add('nombMalla')
-            ->add('codiPfg', null)
+            ->add('codiPfg', null, array(
+                'label' => 'filter.label_nomb_pfg'
+            ))
         ;
     }
 
@@ -30,7 +32,9 @@ class MallaAdmin extends Admin
         $listMapper
             ->add('codiMalla')
             ->add('nombMalla')
-            ->add('codiPfg', null)
+            ->add('codiPfg.nombPfg', null, array(
+                'label' => 'list.label_nomb_pfg'
+            ))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -49,7 +53,9 @@ class MallaAdmin extends Admin
         $formMapper
             ->add('codiMalla')
             ->add('nombMalla')
-            ->add('codiPfg', null)
+            ->add('codiPfg', null, array(
+                'label' => 'form.label_nomb_pfg'
+            ))
         ;
     }
 
@@ -61,7 +67,9 @@ class MallaAdmin extends Admin
         $showMapper
             ->add('codiMalla')
             ->add('nombMalla')
-            ->add('codiPfg', null)
+            ->add('codiPfg', null, array(
+                'label' => 'show.label_nomb_pfg'
+            ))
         ;
     }
 }

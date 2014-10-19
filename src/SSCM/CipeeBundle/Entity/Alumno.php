@@ -2,13 +2,18 @@
 
 namespace SSCM\CipeeBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Alumno
  *
  * @ORM\Table(name="alumno")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SSCM\CipeeBundle\Entity\AlumnoRepository"))
+ * @ExclusionPolicy("all")
  */
 class Alumno
 {
@@ -17,15 +22,24 @@ class Alumno
      *
      * @ORM\Column(name="cedu_almn", type="string", length=11, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     * @ORM\OneToMany(targetEntity="EstadoAcademico", mappedBy="almn")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 6,
+     *     max = 9,
+     *     minMessage = "N° de Cédula debe tener al menos {{ limit }} caracteres.",
+     *     maxMessage = "N° de Cédula no puede tener mas de {{ limit }} caracteres."
+     *  )
      */
-    private $ceduAlmn = '0';
+    private $ceduAlmn;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nomb_almn", type="string", length=100, nullable=true)
+     * @Expose
+     * @Assert\NotBlank()
      */
     private $nombAlmn;
 
@@ -33,6 +47,8 @@ class Alumno
      * @var string
      *
      * @ORM\Column(name="apell_almn", type="string", length=100, nullable=true)
+     * @Expose
+     * @Assert\NotBlank()
      */
     private $apellAlmn;
 
@@ -40,19 +56,50 @@ class Alumno
      * @var string
      *
      * @ORM\Column(name="telf_almn", type="string", length=50, nullable=true)
+     * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     min = 11,
+     *     max = 23,
+     *     minMessage = "N° de Teléfono debe tener al menos {{ limit }} caracteres.",
+     *     maxMessage = "N° de Teléfono no puede tener mas de {{ limit }} caracteres."
+     *  )
      */
     private $telfAlmn;
 
+    /**
+     * @var Array
+     *
+     * @ORM\OneToMany(targetEntity="EstadoAcademico", mappedBy="ceduAlmn")
+     * @Expose
+     */
+    protected $estadoAcademico;
 
-    public function __toString()
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct()
     {
-        return $this->getCeduAlmn()?: '-';
+        $this->mallas = new ArrayCollection();
+    }
+
+    /**
+     * Set ceduAlmn
+     *
+     * @param  string $ceduAlmn
+     * @return Alumno
+     */
+    public function setCeduAlmn($ceduAlmn)
+    {
+        $this->ceduAlmn = $ceduAlmn;
+
+        return $this;
     }
 
     /**
      * Get ceduAlmn
      *
-     * @return string 
+     * @return string
      */
     public function getCeduAlmn()
     {
@@ -62,7 +109,7 @@ class Alumno
     /**
      * Set nombAlmn
      *
-     * @param string $nombAlmn
+     * @param  string $nombAlmn
      * @return Alumno
      */
     public function setNombAlmn($nombAlmn)
@@ -75,7 +122,7 @@ class Alumno
     /**
      * Get nombAlmn
      *
-     * @return string 
+     * @return string
      */
     public function getNombAlmn()
     {
@@ -85,7 +132,7 @@ class Alumno
     /**
      * Set apellAlmn
      *
-     * @param string $apellAlmn
+     * @param  string $apellAlmn
      * @return Alumno
      */
     public function setApellAlmn($apellAlmn)
@@ -98,7 +145,7 @@ class Alumno
     /**
      * Get apellAlmn
      *
-     * @return string 
+     * @return string
      */
     public function getApellAlmn()
     {
@@ -108,7 +155,7 @@ class Alumno
     /**
      * Set telfAlmn
      *
-     * @param string $telfAlmn
+     * @param  string $telfAlmn
      * @return Alumno
      */
     public function setTelfAlmn($telfAlmn)
@@ -121,10 +168,51 @@ class Alumno
     /**
      * Get telfAlmn
      *
-     * @return string 
+     * @return string
      */
     public function getTelfAlmn()
     {
         return $this->telfAlmn;
+    }
+
+    /**
+     * Add estadoAcademico
+     *
+     * @param  \SSCM\CipeeBundle\Entity\EstadoAcademico $estadoAcademico
+     * @return Alumno
+     */
+    public function addEstadoAcademico(\SSCM\CipeeBundle\Entity\EstadoAcademico $estadoAcademico)
+    {
+        $this->estadoAcademico[] = $estadoAcademico;
+
+        return $this;
+    }
+
+    /**
+     * Remove estadoAcademico
+     *
+     * @param \SSCM\CipeeBundle\Entity\EstadoAcademico $estadoAcademico
+     */
+    public function removeEstadoAcademico(\SSCM\CipeeBundle\Entity\EstadoAcademico $estadoAcademico)
+    {
+        $this->estadoAcademico->removeElement($estadoAcademico);
+    }
+
+    /**
+     * Get estadoAcademico
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEstadoAcademico()
+    {
+        return $this->estadoAcademico;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        return $this->getCeduAlmn()?: '-';
     }
 }

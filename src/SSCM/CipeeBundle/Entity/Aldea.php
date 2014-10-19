@@ -3,12 +3,16 @@
 namespace SSCM\CipeeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JMS\Serializer\Annotation\SerializedName;
 
 /**
  * Aldea
  *
  * @ORM\Table(name="aldea", indexes={@ORM\Index(name="codi_parroq", columns={"codi_parroq"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SSCM\CipeeBundle\Entity\AldeaRepository")
+ * @ExclusionPolicy("all")
  */
 class Aldea
 {
@@ -17,14 +21,16 @@ class Aldea
      *
      * @ORM\Column(name="codi_aldea", type="string", length=11, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @Expose
      */
-    private $codiAldea = '0';
+    private $codiAldea;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nomb_aldea", type="string", length=100, nullable=true)
+     * @Expose
      */
     private $nombAldea;
 
@@ -35,19 +41,28 @@ class Aldea
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="codi_parroq", referencedColumnName="codi_parroq")
      * })
+     * @Expose
+     * @SerializedName("parroquia")
      */
     private $codiParroq;
 
-
-    public function __toString()
+    /**
+     * Set codiAldea
+     *
+     * @param  string $codiAldea
+     * @return Aldea
+     */
+    public function setCodiAldea($codiAldea)
     {
-        return $this->getNombAldea()?: '-';
+        $this->codiAldea = $codiAldea;
+
+        return $this;
     }
 
     /**
      * Get codiAldea
      *
-     * @return string 
+     * @return string
      */
     public function getCodiAldea()
     {
@@ -57,7 +72,7 @@ class Aldea
     /**
      * Set nombAldea
      *
-     * @param string $nombAldea
+     * @param  string $nombAldea
      * @return Aldea
      */
     public function setNombAldea($nombAldea)
@@ -70,7 +85,7 @@ class Aldea
     /**
      * Get nombAldea
      *
-     * @return string 
+     * @return string
      */
     public function getNombAldea()
     {
@@ -80,7 +95,7 @@ class Aldea
     /**
      * Set codiParroq
      *
-     * @param \SSCM\CipeeBundle\Entity\Parroquia $codiParroq
+     * @param  \SSCM\CipeeBundle\Entity\Parroquia $codiParroq
      * @return Aldea
      */
     public function setCodiParroq(\SSCM\CipeeBundle\Entity\Parroquia $codiParroq = null)
@@ -93,10 +108,15 @@ class Aldea
     /**
      * Get codiParroq
      *
-     * @return \SSCM\CipeeBundle\Entity\Parroquia 
+     * @return \SSCM\CipeeBundle\Entity\Parroquia
      */
     public function getCodiParroq()
     {
         return $this->codiParroq;
+    }
+
+    public function __toString()
+    {
+        return $this->getCodiAldea()?: '-';
     }
 }

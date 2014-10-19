@@ -10,23 +10,25 @@ class ParroquiaType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codiParroq')
             ->add('nombParroq')
             ->add('codiMuni')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SSCM\CipeeBundle\Entity\Parroquia'
+            'data_class' => 'SSCM\CipeeBundle\Entity\Parroquia',
+            'csrf_protection' => false
         ));
     }
 

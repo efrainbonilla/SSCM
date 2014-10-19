@@ -21,7 +21,7 @@ imports:
     - { resource: knp/knp_menu.yml }
 
     # - { resource: "@SadminBundle/Resources/config/admin.yml" }
-    - { resource: "@CipeeBundle/Resources/config/admin.yml" }
+    # - { resource: "@CipeeBundle/Resources/config/routing_admin.yml" }
 
 framework:
     #esi:             ~

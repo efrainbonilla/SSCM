@@ -48,7 +48,7 @@ class Eje
     /**
      * Set codiEje
      *
-     * @param string $codiEje
+     * @param  string $codiEje
      * @return Eje
      */
     public function setCodiEje($codiEje)
@@ -61,7 +61,7 @@ class Eje
     /**
      * Get codiEje
      *
-     * @return string 
+     * @return string
      */
     public function getCodiEje()
     {
@@ -71,7 +71,7 @@ class Eje
     /**
      * Set nombEje
      *
-     * @param string $nombEje
+     * @param  string $nombEje
      * @return Eje
      */
     public function setNombEje($nombEje)
@@ -84,7 +84,7 @@ class Eje
     /**
      * Get nombEje
      *
-     * @return string 
+     * @return string
      */
     public function getNombEje()
     {
@@ -94,7 +94,7 @@ class Eje
     /**
      * Set codiEdo
      *
-     * @param \SSCM\CipeeBundle\Entity\Estado $codiEdo
+     * @param  \SSCM\CipeeBundle\Entity\Estado $codiEdo
      * @return Eje
      */
     public function setCodiEdo(\SSCM\CipeeBundle\Entity\Estado $codiEdo)
@@ -107,7 +107,7 @@ class Eje
     /**
      * Get codiEdo
      *
-     * @return \SSCM\CipeeBundle\Entity\Estado 
+     * @return \SSCM\CipeeBundle\Entity\Estado
      */
     public function getCodiEdo()
     {

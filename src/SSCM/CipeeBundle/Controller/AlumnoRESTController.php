@@ -11,7 +11,6 @@ use FOS\RestBundle\View\View as FOSView;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use SSCM\CipeeBundle\Entity\Alumno;
 use SSCM\CipeeBundle\Form\AlumnoType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -133,13 +132,12 @@ class AlumnoRESTController extends VoryxController
      * Partial Update to a Alumno entity.
      *
      * @View(serializerEnableMaxDepthChecks=true)
-     * @ApiDoc()
      *
      * @param Request $request
      * @param $entity
      *
      * @return Response
-*/
+    */
     public function patchAction(Request $request, Alumno $entity)
     {
         return $this->putAction($request, $entity);

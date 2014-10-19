@@ -3,12 +3,15 @@
 namespace SSCM\CipeeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
 
 /**
  * Estado
  *
  * @ORM\Table(name="estado")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="SSCM\CipeeBundle\Entity\EstadoRepository")
+ * @ExclusionPolicy("all")
  */
 class Estado
 {
@@ -17,26 +20,36 @@ class Estado
      *
      * @ORM\Column(name="codi_edo", type="string", length=11, nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
+     * @Expose
      */
-    private $codiEdo = '0';
+    private $codiEdo;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nomb_edo", type="string", length=100, nullable=true)
+     * @Expose
      */
     private $nombEdo;
 
-    public function __toString()
+    /**
+     * Set codiEdo
+     *
+     * @param  string $codiEdo
+     * @return Estado
+     */
+    public function setCodiEdo($codiEdo)
     {
-        return $this->getNombEdo()?: '-';
+        $this->codiEdo = $codiEdo;
+
+        return $this;
     }
 
     /**
-     * Get id
+     * Get codiEdo
      *
-     * @return string 
+     * @return string
      */
     public function getCodiEdo()
     {
@@ -46,7 +59,7 @@ class Estado
     /**
      * Set nombEdo
      *
-     * @param string $nombEdo
+     * @param  string $nombEdo
      * @return Estado
      */
     public function setNombEdo($nombEdo)
@@ -59,10 +72,15 @@ class Estado
     /**
      * Get nombEdo
      *
-     * @return string 
+     * @return string
      */
     public function getNombEdo()
     {
         return $this->nombEdo;
+    }
+
+    public function __toString()
+    {
+        return $this->getNombEdo()?: '-';
     }
 }

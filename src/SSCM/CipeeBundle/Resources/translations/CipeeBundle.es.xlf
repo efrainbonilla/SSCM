@@ -89,6 +89,24 @@
                 <target>TELÉFONO</target>
             </trans-unit>
 
+            <trans-unit id="list.label_codi_pfg">
+                <source>list.label_codi_pfg</source>
+                <target>CÓDIGO PFG</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_pfg">
+                <source>list.label_nomb_pfg</source>
+                <target>PFG</target>
+            </trans-unit>
+
+            <trans-unit id="list.label_codi_malla">
+                <source>list.label_codi_malla</source>
+                <target>CÓDIGO MALLA</target>
+            </trans-unit>
+            <trans-unit id="list.label_nomb_malla">
+                <source>list.label_nomb_malla</source>
+                <target>MALLA</target>
+            </trans-unit>
+
 
             <trans-unit id="filter.label_codi_eje">
                 <source>filter.label_codi_eje</source>
@@ -146,6 +164,24 @@
             <trans-unit id="filter.label_telf_almn">
                 <source>filter.label_telf_almn</source>
                 <target>TELÉFONO</target>
+            </trans-unit>
+
+            <trans-unit id="filter.label_codi_pfg">
+                <source>filter.label_codi_pfg</source>
+                <target>CÓDIGO PFG</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_pfg">
+                <source>filter.label_nomb_pfg</source>
+                <target>PFG</target>
+            </trans-unit>
+
+            <trans-unit id="filter.label_codi_malla">
+                <source>filter.label_codi_malla</source>
+                <target>CÓDIGO MALLA</target>
+            </trans-unit>
+            <trans-unit id="filter.label_nomb_malla">
+                <source>filter.label_nomb_malla</source>
+                <target>MALLA</target>
             </trans-unit>
 
 
@@ -207,6 +243,24 @@
                 <target>TELÉFONO</target>
             </trans-unit>
 
+            <trans-unit id="form.label_codi_pfg">
+                <source>form.label_codi_pfg</source>
+                <target>CÓDIGO PFG</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_pfg">
+                <source>form.label_nomb_pfg</source>
+                <target>PFG</target>
+            </trans-unit>
+
+            <trans-unit id="form.label_codi_malla">
+                <source>form.label_codi_malla</source>
+                <target>CÓDIGO MALLA</target>
+            </trans-unit>
+            <trans-unit id="form.label_nomb_malla">
+                <source>form.label_nomb_malla</source>
+                <target>MALLA</target>
+            </trans-unit>
+
 
             <trans-unit id="show.label_codi_eje">
                 <source>show.label_codi_eje</source>
@@ -266,6 +320,24 @@
                 <target>TELÉFONO</target>
             </trans-unit>
 
+            <trans-unit id="show.label_codi_pfg">
+                <source>show.label_codi_pfg</source>
+                <target>CÓDIGO PFG</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_pfg">
+                <source>show.label_nomb_pfg</source>
+                <target>PFG</target>
+            </trans-unit>
+
+            <trans-unit id="show.label_codi_malla">
+                <source>show.label_codi_malla</source>
+                <target>CÓDIGO MALLA</target>
+            </trans-unit>
+            <trans-unit id="show.label_nomb_malla">
+                <source>show.label_nomb_malla</source>
+                <target>MALLA</target>
+            </trans-unit>
+
 
             <trans-unit id="breadcrumb.link_eje_list">
                 <source>breadcrumb.link_eje_list</source>
@@ -291,6 +363,16 @@
             <trans-unit id="breadcrumb.link_alumno_list">
                 <source>breadcrumb.link_alumno_list</source>
                 <target>Alumnos</target>
+            </trans-unit>
+
+            <trans-unit id="breadcrumb.link_pfg_list">
+                <source>breadcrumb.link_pfg_list</source>
+                <target>PFG</target>
+            </trans-unit>
+
+            <trans-unit id="breadcrumb.link_malla_list">
+                <source>breadcrumb.link_malla_list</source>
+                <target>Mallas</target>
             </trans-unit>
 
             <trans-unit id="list.label__action">

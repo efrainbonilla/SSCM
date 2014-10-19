@@ -10,22 +10,24 @@ class EstadoType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('codiEdo')
             ->add('nombEdo')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'SSCM\CipeeBundle\Entity\Estado'
+            'data_class' => 'SSCM\CipeeBundle\Entity\Estado',
+            'csrf_protection' => false
         ));
     }
 
